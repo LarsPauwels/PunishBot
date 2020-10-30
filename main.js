@@ -84,7 +84,7 @@ Client.once('ready', () => {
 				    member.voice.setDeaf(true);
 				}
 
-				await new Promise(resolve => setTimeout(() => { 
+				setTimeout(() => { 
 					for (const [memberID, member] of channel.members) {
 					    member.voice.setMute(false);
 					    member.voice.setDeaf(false);
@@ -92,7 +92,7 @@ Client.once('ready', () => {
 
 					member.roles.remove(role).catch(console.error);
 					member.voice.setChannel(currentChannel);
-				}, 60000));
+				}, 60000);
 			});
 		}
 	});
