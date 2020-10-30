@@ -24,14 +24,17 @@ const images = [
 	"https://i.redd.it/76bf2xwyj8q31.jpg"
 ];
 
-Client.once('ready', () => {
-	console.log('Bot started');
-	
-	command(Client, 'punish', message => {
-		console.log('Typed punish');
-		const role = message.guild.roles.cache.find(role => role.name === "Thanos Slave");
+class Commands {
+	constructor(channelName, roleName) {
+		this.channelName = channelName;
+		this.roleName = roleName;
+	}
+
+	async punishCommand() {
+		const current = this;
+		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
 		const member = message.mentions.members.first();
-		const channel = Client.channels.cache.find(channel => channel.name === "Thanos Dungeon");
+		const channel = Client.channels.cache.find(channel => channel.name === this.channelName);
 		const currentChannel = member.voice.channelID;
 
 		if (member) {
@@ -84,62 +87,91 @@ Client.once('ready', () => {
 				    member.voice.setDeaf(true);
 				}
 
-				setTimeout(() => { 
-					for (const [memberID, member] of channel.members) {
-					    member.voice.setMute(false);
-					    member.voice.setDeaf(false);
-					}
+				await current.sleep(60000);
 
-					member.roles.remove(role).catch(console.error);
-					member.voice.setChannel(currentChannel);
-				}, 60000);
+				for (const [memberID, member] of channel.members) {
+				    member.voice.setMute(false);
+				    member.voice.setDeaf(false);
+				}
+
+				member.roles.remove(role).catch(console.error);
+				member.voice.setChannel(currentChannel);
 			});
+		} else {
+			message.channel.send('Choose someone that exists.');
 		}
+	}
+
+	async sleep(ms) {
+		await new Promise(resolve => setTimeout(resolve, ms))
+	}
+}
+
+Client.once('ready', () => {
+	console.log('Bot started');
+	const commands = new Commands(process.env.CHANNEL, process.env.ROLE);
+	
+	command(Client, process.env.PUNISH, message => {
+		console.log('Typed punish');
+		commands.punishCommand();
 	});
 });
 
-Client.on('guildCreate', guild => {
-	/* Add New  Category & Channel */
-	const channelName = 'Thanos Dungeon';
-	const channel = guild.channels.cache.find(c => c.name === channelName);
-	if (!channel) {
-		guild.channels
-	      	.create("Punish Bot", {
-	       	 	type: 'category',
-	       	 	permissionsOverwrites: [{
-			    	id: guild.id,
-			    	deny: ['MANAGE_MESSAGES'],
-			    	allow: ['SEND_MESSAGES']
-			  	}]
-	      	})
-	      	.then((category) => {
-	        	console.log('Category Created ('+category.id+')');
+class Setup {
+	constructor(guild, categoryName, channelName, role) {
+	    this.guild = guild;
+	    this.categoryName = categoryName;
+	    this.channelName = channelName;
+	    this.role = role;
 
-	        	guild.channels
-			    	.create(channelName, {
-			        	type: 'voice',
-			      	})
-			      	.then((channel) => {
-			        	channel.setParent(category.id);
-			        	console.log('Channel Created ('+channel.id+')');
-			      	})
-			      	.catch(console.error);
+	    this.createCategory();
+	    this.createRole();
+	}
+
+	createCategory() {
+		const current = this;
+		const channel = guild.channels.cache.find(c => c.name === this.channelName);
+		if (!channel) {
+			guild.channels
+		      	.create(this.categoryName, {
+		       	 	type: 'category',
+		       	 	permissionsOverwrites: [{
+				    	id: guild.id,
+				    	deny: ['MANAGE_MESSAGES'],
+				    	allow: ['SEND_MESSAGES']
+				  	}]
+		      	})
+		      	.then((category) => {
+		        	console.log('Category Created ('+category.id+')');
+		        	current.createChannel();
+		      	})
+		      	.catch(console.error);
+		}
+	}
+
+	createChannel() {
+		guild.channels
+	    	.create(this.channelName, {
+	        	type: 'voice',
+	      	})
+	      	.then((channel) => {
+	        	channel.setParent(category.id);
+	        	console.log('Channel Created ('+channel.id+')');
 	      	})
 	      	.catch(console.error);
 	}
 
-	/* Add New Rol */
-	const roleName = 'Thanos Slave';
-	const role = guild.roles.cache.find(x => x.name == roleName);
-    if(!role) {
-	    guild.roles.create({
-		  	data: {
-		    	name: roleName,
-		    	color: '#800080',
-		    	permissions: []
-		  	},
-		  	reason: 'You did something naughty. Welcome to Thanos Dungeon',
-		})
+	createRole() {
+		const role = guild.roles.cache.find(x => x.name == this.roleName);
+	    if(!role) {
+		    guild.roles.create({
+			  	data: {
+			    	name: this.roleName,
+			    	color: '#800080',
+			    	permissions: []
+			  	},
+			  	reason: 'You did something naughty. Welcome to Thanos Dungeon',
+			})
 		  	.then(role => {
 		  		console.log('Rol Created');
 		  		role.setPermissions([
@@ -173,7 +205,15 @@ Client.on('guildCreate', guild => {
 		  		]);
 		  	})
 		  	.catch(console.error);
+		}
 	}
+}
+
+Client.on('guildCreate', guild => {
+	//'Punish Bot'
+	//'Thanos Dungeon'
+	//'Thanos Slave'
+	const setup = new Setup(guild, process.env.CATEGORY, process.env.CHANNEL, process.env.ROLE);
 });
 
 Client.login(process.env.BOT_TOKEN);

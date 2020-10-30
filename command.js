@@ -7,7 +7,7 @@ module.exports = (client, aliases, callback) => {
     const { content } = message
 
     aliases.forEach((alias) => {
-      const command = `Thanos ${alias}`
+      const command = `${process.env.PREFIX} ${alias}`
 
       if (content.startsWith(`${command} `) || content === command) {
         console.log(`Running the command ${command}`)
