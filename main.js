@@ -143,13 +143,13 @@ class Setup {
 		      	})
 		      	.then((category) => {
 		        	console.log('Category Created ('+category.id+')');
-		        	current.createChannel();
+		        	current.createChannel(category);
 		      	})
 		      	.catch(console.error);
 		}
 	}
 
-	createChannel() {
+	createChannel(category) {
 		this.guild.channels
 	    	.create(this.channelName, {
 	        	type: 'voice',
