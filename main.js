@@ -58,7 +58,7 @@ class Commands {
 			.setColor('#0099ff')
 			.setTitle(text)
 			.setImage(image)
-			.description()
+			.description(desc)
 			.setTimestamp()
 			.setFooter('React with ❌ to delete this post.');
 	}
