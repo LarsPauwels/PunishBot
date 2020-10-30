@@ -25,13 +25,13 @@ const images = [
 ];
 
 class Commands {
-	constructor(channelName, roleName) {
+	constructor(channelName, roleName, time) {
 		this.channelName = channelName;
 		this.roleName = roleName;
+		this.time = time;
 	}
 
 	async punishCommand() {
-		const current = this;
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
 		const member = message.mentions.members.first();
 		const channel = Client.channels.cache.find(channel => channel.name === this.channelName);
@@ -87,29 +87,29 @@ class Commands {
 				    member.voice.setDeaf(true);
 				}
 
-				await current.sleep(60000);
-
-				for (const [memberID, member] of channel.members) {
-				    member.voice.setMute(false);
-				    member.voice.setDeaf(false);
-				}
-
-				member.roles.remove(role).catch(console.error);
-				member.voice.setChannel(currentChannel);
+				current.sleep(current.time);
 			});
 		} else {
 			message.channel.send('Choose someone that exists.');
 		}
 	}
 
-	async sleep(ms) {
-		await new Promise(resolve => setTimeout(resolve, ms))
+	sleep(ms) {
+		setTimeout(() => { 
+			for (const [memberID, member] of channel.members) {
+			    member.voice.setMute(false);
+			    member.voice.setDeaf(false);
+			}
+
+			member.roles.remove(role).catch(console.error);
+			member.voice.setChannel(currentChannel);
+		}, ms);
 	}
 }
 
 Client.once('ready', () => {
 	console.log('Bot started');
-	const commands = new Commands(process.env.CHANNEL, process.env.ROLE);
+	const commands = new Commands(process.env.CHANNEL, process.env.ROLE, process.env.TIME);
 	
 	command(Client, process.env.PUNISH, message => {
 		console.log('Typed punish');
