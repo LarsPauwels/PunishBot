@@ -51,8 +51,19 @@ class Commands {
 		this.time = time;
 	}
 
+	createMessage(text) {
+		const image = images[Math.floor(Math.random() * images.length)];
+		return new Discord.MessageEmbed()
+			.setColor('#0099ff')
+			.setTitle(text)
+			.setThumbnail(image)
+			.setImage(image)
+			.setTimestamp()
+			.setFooter('React with ❌ to delete this post.');
+	}
+
 	async daddyCommand(message, text) {
-		await message.channel.send(text, {files: [images[Math.floor(Math.random() * images.length)]]});
+		await message.channel.send(createMessage);
 	}
 
 	async punishCommand(message) {
