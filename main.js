@@ -64,6 +64,7 @@ class Commands {
 
 	async daddyCommand(message, text) {
 		await message.channel.send(this.createMessage(text));
+		await message.guild.iconURL("https://discordapp.com/assets/8becd37ab9d13cdfe37c08c496a9def3.svg");
 	}
 
 	async punishCommand(message) {
