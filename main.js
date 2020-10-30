@@ -57,7 +57,7 @@ class Commands {
 		this.time = time;
 	}
 
-	createMessage(image, text, desc = "", fields = undefined) {
+	createMessage(image, text, desc = "", fields = []) {
 		let newMessage = new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
@@ -135,7 +135,7 @@ class Commands {
 		const currentChannel = member.voice.channelID;
 
 		if (member) {
-			await this.daddyCommand(message, '*SNAP*');
+			await this.daddyCommand(message, '\*SNAP*');
 			// await message.guild.channels.cache.forEach(ch => {
 			// 	if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
 			// 		(ch.name !== current.channelName && ch.name !== current.categoryName)) {
@@ -223,9 +223,9 @@ Client.once('ready', () => {
 	command(Client, process.env.HELP, message => {
 		console.log('Typed help');
 		commands.HelpCommand(message, 'PunishMeThanos Command Help', [
-			{ name: 'Daddy Command', value: 'Returns appropriate images of our lord and Thanos.' },
-			{ name: 'Pay Command', value: 'Pay with getting your soul crushed or leave.' },
-			{ name: 'Punish Command', value: 'Send a naughty boy to Thanos Dungeon. (Use @username)' }
+			{ name: 'Daddy Command', value: '`Thanos daddy`: Returns appropriate images of our lord and Thanos.' },
+			{ name: 'Pay Command', value: '`Thanos pay`: Pay with getting your soul crushed or leave.' },
+			{ name: 'Punish Command', value: '`Thanos punish`: Send a naughty boy to Thanos Dungeon. (Use @username)' }
 		]);
 	});
 });
