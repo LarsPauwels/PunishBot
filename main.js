@@ -41,47 +41,47 @@ class Commands {
 
 		if (member) {
 			await message.channel.send('*SNAP*', {files: [images[Math.floor(Math.random() * images.length)]]});
-			await message.guild.channels.cache.forEach(ch => {
-				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
-					(ch.name !== current.channelName && ch.name !== current.categoryName)) {
-					ch.overwritePermissions([{
-				    	id: role.id,
-				     	deny: [
-				     		'SEND_MESSAGES', 
-				     		'VIEW_CHANNEL', 
-				     		'CREATE_INSTANT_INVITE', 
-				     		'KICK_MEMBERS',
-				     		'BAN_MEMBERS',
-				     		'ADMINISTRATOR',
-				     		'MANAGE_CHANNELS',
-				     		'MANAGE_GUILD',
-				     		'ADD_REACTIONS',
-				     		'VIEW_AUDIT_LOG',
-				     		'PRIORITY_SPEAKER',
-				     		'STREAM',
-				     		'SEND_TTS_MESSAGES',
-				     		'MANAGE_MESSAGES',
-				     		'EMBED_LINKS',
-				     		'ATTACH_FILES',
-				     		'READ_MESSAGE_HISTORY',
-				     		'MENTION_EVERYONE',
-				     		'USE_EXTERNAL_EMOJIS',
-				     		'VIEW_GUILD_INSIGHTS',
-				     		'CONNECT',
-				     		'SPEAK',
-				     		'MUTE_MEMBERS',
-				     		'DEAFEN_MEMBERS',
-				     		'MOVE_MEMBERS',
-				     		'USE_VAD',
-				     		'CHANGE_NICKNAME',
-				     		'MANAGE_NICKNAMES',
-				     		'MANAGE_ROLES',
-				     		'MANAGE_WEBHOOKS',
-				     		'MANAGE_EMOJIS'],
-				  	},
-					], 'Needed to change permissions');
-				}
-			});
+			// await message.guild.channels.cache.forEach(ch => {
+			// 	if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
+			// 		(ch.name !== current.channelName && ch.name !== current.categoryName)) {
+			// 		ch.overwritePermissions([{
+			// 	    	id: role.id,
+			// 	     	deny: [
+			// 	     		'SEND_MESSAGES', 
+			// 	     		'VIEW_CHANNEL', 
+			// 	     		'CREATE_INSTANT_INVITE', 
+			// 	     		'KICK_MEMBERS',
+			// 	     		'BAN_MEMBERS',
+			// 	     		'ADMINISTRATOR',
+			// 	     		'MANAGE_CHANNELS',
+			// 	     		'MANAGE_GUILD',
+			// 	     		'ADD_REACTIONS',
+			// 	     		'VIEW_AUDIT_LOG',
+			// 	     		'PRIORITY_SPEAKER',
+			// 	     		'STREAM',
+			// 	     		'SEND_TTS_MESSAGES',
+			// 	     		'MANAGE_MESSAGES',
+			// 	     		'EMBED_LINKS',
+			// 	     		'ATTACH_FILES',
+			// 	     		'READ_MESSAGE_HISTORY',
+			// 	     		'MENTION_EVERYONE',
+			// 	     		'USE_EXTERNAL_EMOJIS',
+			// 	     		'VIEW_GUILD_INSIGHTS',
+			// 	     		'CONNECT',
+			// 	     		'SPEAK',
+			// 	     		'MUTE_MEMBERS',
+			// 	     		'DEAFEN_MEMBERS',
+			// 	     		'MOVE_MEMBERS',
+			// 	     		'USE_VAD',
+			// 	     		'CHANGE_NICKNAME',
+			// 	     		'MANAGE_NICKNAMES',
+			// 	     		'MANAGE_ROLES',
+			// 	     		'MANAGE_WEBHOOKS',
+			// 	     		'MANAGE_EMOJIS'],
+			// 	  	},
+			// 		], 'Needed to change permissions');
+			// 	}
+			// });
 
 			await member.roles.add(role).catch(console.error);
 			await member.voice.setChannel(channel).then(() => {
