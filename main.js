@@ -62,9 +62,32 @@ class Commands {
 			.setFooter('React with ❌ to delete this post.');
 	}
 
+	async deleteMessage(message) {
+		const emoji = await emojiMessage(message, ["❌"]);
+		if (emoji === "❌") {
+			if (message.deletable == true) {
+				console.log("Delete message");
+				message.delete();
+			}
+		}
+	}
+
+	async emojiMessage(message, validReactions) {
+        for (const reaction of validReactions) await message.react(reaction);
+        const filter = (reaction, user) => validReactions.includes(reaction.emoji.name) && (!user.bot)
+
+        return message
+            .awaitReactions(filter, {
+                max: 1,
+                time: 42000
+            })
+            .then(collected => collected.first() && collected.first().emoji.name);
+	}
+
 	async daddyCommand(message, text) {
-		await message.channel.send(this.createMessage(text));
-		await message.guild.iconURL("https://discordapp.com/assets/8becd37ab9d13cdfe37c08c496a9def3.svg");
+		const sendMessage = await message.channel.send(this.createMessage(text));
+		await sendMessage.react('❌');
+		this.deleteMessage(message);
 	}
 
 	async punishCommand(message) {
