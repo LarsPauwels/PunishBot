@@ -62,7 +62,7 @@ class Commands {
 	}
 
 	async deleteMessage(message) {
-		const emoji = await emojiMessage(message, ["❌"]);
+		const emoji = await this.emojiMessage(message, ["❌"]);
 		if (emoji === "❌") {
 			if (message.deletable == true) {
 				console.log("Delete message");
