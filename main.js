@@ -95,7 +95,7 @@ class Commands {
 		    .then(res => res.text())
 		    .then(text => {
 		    	message.channel.send(current.createMessage(payImage, "Price have been payed.", text.insult));
-		    }));
+		    });
 	}
 
 	async daddyCommand(message, text) {
