@@ -122,6 +122,11 @@ class Commands {
 		this.deleteMessage(sendMessage, ["❌", "💰"]);
 	}
 
+	async HelpCommand(message, text, fields) {
+		const sendMessage = await message.channel.send(this.createMessage(payImage[0], text, "", fields));
+		this.deleteMessage(sendMessage);
+	}
+
 	async punishCommand(message) {
 		const current = this;
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
@@ -217,7 +222,7 @@ Client.once('ready', () => {
 
 	command(Client, process.env.HELP, message => {
 		console.log('Typed help');
-		commands.payCommand(message, 'PunishMeThanos Command Help', "", [
+		commands.HelpCommand(message, 'PunishMeThanos Command Help', [
 			{ name: 'Daddy Command', value: 'Returns appropriate images of our lord and Thanos.' },
 			{ name: 'Pay Command', value: 'Pay with getting your soul crushed or leave.' },
 			{ name: 'Punish Command', value: 'Send a naughty boy to Thanos Dungeon. (Use @username)' }
