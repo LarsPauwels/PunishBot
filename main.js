@@ -53,19 +53,18 @@ class Commands {
 		this.time = time;
 	}
 
-	createMessage(image, text, desc = "") {
-		console.log(image);
+	createMessage(image, text, desc = "", icon = "❌") {
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
 			.setDescription(desc)
 			.setImage(image)
 			.setTimestamp()
-			.setFooter('React with ❌ to delete this post.');
+			.setFooter(`React with ${icon} to delete this post.`);
 	}
 
 	async deleteMessage(message) {
-		const emoji = await this.emojiMessage(message, ["❌"]);
+		const emoji = await this.emojiMessage(message, ["❌", "💰"]);
 		if (emoji === "❌") {
 			if (message.deletable == true) {
 				console.log("Delete message");
@@ -93,7 +92,7 @@ class Commands {
 	}
 
 	async payCommand(message, text) {
-		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "testing"));
+		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "testing", "💰"));
 		this.deleteMessage(sendMessage);
 	}
 
