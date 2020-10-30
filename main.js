@@ -162,11 +162,12 @@ class Setup {
 	}
 
 	createRole() {
+		const current = this;
 		const role = this.guild.roles.cache.find(x => x.name == this.roleName);
 	    if(!role) {
 		    this.guild.roles.create({
 			  	data: {
-			    	name: this.roleName,
+			    	name: current.roleName,
 			    	color: '#800080',
 			    	permissions: []
 			  	},
