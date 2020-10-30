@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const Client = new Discord.Client();
 const command = require('./command');
-const config = require('./config.json');
+
 const images = [
 	"https://media1.tenor.com/images/e36fb32cfc3b63075adf0f1843fdc43a/tenor.gif",
 	"https://giphy.com/gifs/spiderman-tom-holland-i-dont-feel-so-good-XzkGfRsUweB9ouLEsE",
