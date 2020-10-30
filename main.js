@@ -32,6 +32,7 @@ class Commands {
 	}
 
 	punishCommand(message) {
+		const current = this;
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
 		const member = message.mentions.members.first();
 		const channel = Client.channels.cache.find(channel => channel.name === this.channelName);
