@@ -21,7 +21,13 @@ const images = [
 	"https://preview.redd.it/1fva2g7w9xe11.jpg?auto=webp&s=e3056c23c7b3ccc3dcf47edd181541f6357b338f",
 	"https://pm1.narvii.com/7320/eb0e607b0ec72a258448c55daff9569d37922db7r1-1600-1581v2_uhq.jpg",
 	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/878e586c-b9ef-4573-9b2e-4798703b74b8/dclgvaj-029673c6-a7c7-43ca-b978-2500d6964316.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvODc4ZTU4NmMtYjllZi00NTczLTliMmUtNDc5ODcwM2I3NGI4XC9kY2xndmFqLTAyOTY3M2M2LWE3YzctNDNjYS1iOTc4LTI1MDBkNjk2NDMxNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vjPwzjqTagGFiu5lvLdw76noixCVII1BTSzxoWM7OzQ",
-	"https://i.redd.it/76bf2xwyj8q31.jpg"
+	"https://i.redd.it/76bf2xwyj8q31.jpg",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/0b2110f8-fbc9-486d-b1fc-cc2a7cf377c4/dbywedo-62086ad4-b594-4afc-b1c4-ccb00aa1f517.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMGIyMTEwZjgtZmJjOS00ODZkLWIxZmMtY2MyYTdjZjM3N2M0XC9kYnl3ZWRvLTYyMDg2YWQ0LWI1OTQtNGFmYy1iMWM0LWNjYjAwYWExZjUxNy5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.nLatdwyq9CJFmfLTaBZaNEsfVibbzJwOCb10vRfSkyo",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/313d8e40-59f5-42aa-bd6e-ec5236d30fd6/dcb4205-4fce63d4-db43-4cb2-b098-5f08032fdec6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvMzEzZDhlNDAtNTlmNS00MmFhLWJkNmUtZWM1MjM2ZDMwZmQ2XC9kY2I0MjA1LTRmY2U2M2Q0LWRiNDMtNGNiMi1iMDk4LTVmMDgwMzJmZGVjNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.cRK8MoaeAt0EQujLAzb3NBS8c4FUWLzTgRzHdrom2-U",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a0659888-f796-45a6-8f41-76bb810574ed/ddbk4bx-779db54a-1f73-4d98-92df-d6133de1dabc.png/v1/fill/w_486,h_350,strp/captain_ticklish___the_mad_tickler_by_king_of_feathers_ddbk4bx-350t.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD03MzgiLCJwYXRoIjoiXC9mXC9hMDY1OTg4OC1mNzk2LTQ1YTYtOGY0MS03NmJiODEwNTc0ZWRcL2RkYms0YngtNzc5ZGI1NGEtMWY3My00ZDk4LTkyZGYtZDYxMzNkZTFkYWJjLnBuZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.iV1NjgmvRT_1ofK0o_z_IvOMRITvelCWG61EYlyz3ZU",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/7b8dbfad-d467-41c6-8a51-bb54ddb0b53f/dckxnu6-94ba4268-5831-4c9f-938c-d30b1cb6029f.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvN2I4ZGJmYWQtZDQ2Ny00MWM2LThhNTEtYmI1NGRkYjBiNTNmXC9kY2t4bnU2LTk0YmE0MjY4LTU4MzEtNGM5Zi05MzhjLWQzMGIxY2I2MDI5Zi5qcGcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vAlwAGr4W51iZ8Ffkhv849owqgjeMPNothA_IaBRljc",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/4a89d258-018f-461c-afe5-d76371610bb1/dbiolfd-9cfdcf34-c860-48c8-b61e-435199603847.jpg/v1/fill/w_1024,h_1072,q_75,strp/thanos_by_thegameworld_dbiolfd-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMDcyIiwicGF0aCI6IlwvZlwvNGE4OWQyNTgtMDE4Zi00NjFjLWFmZTUtZDc2MzcxNjEwYmIxXC9kYmlvbGZkLTljZmRjZjM0LWM4NjAtNDhjOC1iNjFlLTQzNTE5OTYwMzg0Ny5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.wQtpnuhqME3PzTPVV0S7LVCiHTQCp-r01nXMyY44onk",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/b4da22e0-74bd-48c0-bfe7-8e6454126951/dccowz0-c2c779a3-738b-4d99-ba07-79500cb38c08.jpg/v1/fill/w_1024,h_1407,q_75,strp/thanos_muscle_and_fitness_cover_by_timetravel6000v2_dccowz0-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xNDA3IiwicGF0aCI6IlwvZlwvYjRkYTIyZTAtNzRiZC00OGMwLWJmZTctOGU2NDU0MTI2OTUxXC9kY2Nvd3owLWMyYzc3OWEzLTczOGItNGQ5OS1iYTA3LTc5NTAwY2IzOGMwOC5qcGciLCJ3aWR0aCI6Ijw9MTAyNCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.wG-dMlrfYETq1hrnfCvh-NaDDj8BoDz14it1ouCSQb4"
 ];
 
 class Commands {
@@ -32,6 +38,10 @@ class Commands {
 		this.time = time;
 	}
 
+	async daddyCommand(message, text) {
+		await message.channel.send(text, {files: [images[Math.floor(Math.random() * images.length)]]});
+	}
+
 	async punishCommand(message) {
 		const current = this;
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
@@ -40,7 +50,7 @@ class Commands {
 		const currentChannel = member.voice.channelID;
 
 		if (member) {
-			await message.channel.send('*SNAP*', {files: [images[Math.floor(Math.random() * images.length)]]});
+			await this.daddyCommand(message, '*SNAP*');
 			// await message.guild.channels.cache.forEach(ch => {
 			// 	if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
 			// 		(ch.name !== current.channelName && ch.name !== current.categoryName)) {
@@ -113,6 +123,11 @@ Client.once('ready', () => {
 	command(Client, process.env.PUNISH, message => {
 		console.log('Typed punish');
 		commands.punishCommand(message);
+	});
+
+	command(Client, process.env.DADDY, message => {
+		console.log('Typed daddy');
+		commands.daddyCommand(message, 'Yes my child!');
 	});
 });
 
