@@ -43,7 +43,7 @@ class Commands {
 			message.channel.send('*SNAP*', {files: [images[Math.floor(Math.random() * images.length)]]});
 			message.guild.channels.cache.forEach(ch => {
 				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
-					(ch.name !== current.channelName || ch.name !== current.categoryName)) {
+					(ch.name !== current.channelName && ch.name !== current.categoryName)) {
 					console.log(ch.name);
 					ch.overwritePermissions([{
 				    	id: role.id,
