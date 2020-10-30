@@ -44,7 +44,6 @@ class Commands {
 			message.guild.channels.cache.forEach(ch => {
 				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
 					(ch.name !== current.channelName && ch.name !== current.categoryName)) {
-					console.log(ch.name);
 					ch.overwritePermissions([{
 				    	id: role.id,
 				     	deny: [
@@ -91,23 +90,19 @@ class Commands {
 				    member.voice.setDeaf(true);
 				}
 
-				current.sleep(current.time, channel, member, role, currentChannel);
+				setTimeout(() => { 
+					for (const [memberID, member] of channel.members) {
+					    member.voice.setMute(false);
+					    member.voice.setDeaf(false);
+					}
+
+					member.roles.remove(role).catch(console.error);
+					member.voice.setChannel(currentChannel);
+				}, current.time);
 			});
 		} else {
 			message.channel.send('Choose someone that exists.');
 		}
-	}
-
-	sleep(ms, channel, member, role, currentChannel) {
-		setTimeout(() => { 
-			for (const [memberID, member] of channel.members) {
-			    member.voice.setMute(false);
-			    member.voice.setDeaf(false);
-			}
-
-			member.roles.remove(role).catch(console.error);
-			member.voice.setChannel(currentChannel);
-		}, ms);
 	}
 }
 
