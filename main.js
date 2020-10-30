@@ -130,13 +130,13 @@ class Setup {
 
 	createCategory() {
 		const current = this;
-		const channel = guild.channels.cache.find(c => c.name === this.channelName);
+		const channel = this.guild.channels.cache.find(c => c.name === this.channelName);
 		if (!channel) {
-			guild.channels
+			this.guild.channels
 		      	.create(this.categoryName, {
 		       	 	type: 'category',
 		       	 	permissionsOverwrites: [{
-				    	id: guild.id,
+				    	id: current.guild.id,
 				    	deny: ['MANAGE_MESSAGES'],
 				    	allow: ['SEND_MESSAGES']
 				  	}]
@@ -150,7 +150,7 @@ class Setup {
 	}
 
 	createChannel() {
-		guild.channels
+		this.guild.channels
 	    	.create(this.channelName, {
 	        	type: 'voice',
 	      	})
@@ -162,9 +162,9 @@ class Setup {
 	}
 
 	createRole() {
-		const role = guild.roles.cache.find(x => x.name == this.roleName);
+		const role = this.guild.roles.cache.find(x => x.name == this.roleName);
 	    if(!role) {
-		    guild.roles.create({
+		    this.guild.roles.create({
 			  	data: {
 			    	name: this.roleName,
 			    	color: '#800080',
@@ -210,9 +210,6 @@ class Setup {
 }
 
 Client.on('guildCreate', guild => {
-	//'Punish Bot'
-	//'Thanos Dungeon'
-	//'Thanos Slave'
 	const setup = new Setup(guild, process.env.CATEGORY, process.env.CHANNEL, process.env.ROLE);
 });
 
