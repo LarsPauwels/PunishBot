@@ -97,7 +97,7 @@ class Commands {
 		await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
 		    .then(res => res.json())
 		    .then(text => {
-		    	message.channel.send(current.createMessage(payImage[1], "Price have been payed.", text.insult)).then((sendMessage) => {
+		    	message.channel.send(current.createMessage(payImage[1], "Price have been payed.", `ps: ${text.insult}`)).then((sendMessage) => {
 		    		current.deleteMessage(sendMessage);
 		    	});
 		    });
