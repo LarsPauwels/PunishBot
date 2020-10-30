@@ -27,6 +27,7 @@ Client.once('ready', () => {
 	console.log('Bot started');
 	
 	command(Client, 'punish', message => {
+		console.log('Typed punish');
 		const role = message.guild.roles.cache.find(role => role.name === "Thanos Slave");
 		const member = message.mentions.members.first();
 		const channel = Client.channels.cache.find(channel => channel.name === "Thanos Dungeon");
