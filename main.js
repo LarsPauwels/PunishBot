@@ -176,3 +176,4 @@ Client.on('guildCreate', guild => {
 });
 
 Client.login(process.env.BOT_TOKEN);
+console.log('bot logged in');
