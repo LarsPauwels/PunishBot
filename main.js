@@ -83,8 +83,8 @@ class Commands {
 				}
 			});
 
-			member.roles.add(role).catch(console.error);
-			member.voice.setChannel(channel).then(() => {
+			await member.roles.add(role).catch(console.error);
+			await member.voice.setChannel(channel).then(() => {
 				for (const [memberID, member] of channel.members) {
 				    member.voice.setMute(true);
 				    member.voice.setDeaf(true);
