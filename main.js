@@ -57,14 +57,14 @@ class Commands {
 		this.time = time;
 	}
 
-	createMessage(image, text, desc = "", icon = "❌") {
+	createMessage(image, text, desc = "") {
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
 			.setDescription(desc)
 			.setImage(image)
 			.setTimestamp()
-			.setFooter(`React with ${icon} to pay.`);
+			.setFooter(`React with ❌ to delete this post.`);
 	}
 
 	async deleteMessage(message, $icons = ["❌"]) {
@@ -98,7 +98,7 @@ class Commands {
 		    .then(res => res.json())
 		    .then(text => {
 		    	message.channel.send(current.createMessage(payImage[1], "Price have been payed.", text.insult)).then((sendMessage) => {
-		    		current.deleteMessage(sendMessage, ["❌", "💰"]);
+		    		current.deleteMessage(sendMessage);
 		    	});
 		    });
 	}
@@ -110,8 +110,8 @@ class Commands {
 	}
 
 	async payCommand(message, text) {
-		const sendMessage = await message.channel.send(this.createMessage(payImage[0], text, "💰"));
-		this.deleteMessage(sendMessage);
+		const sendMessage = await message.channel.send(this.createMessage(payImage[0], text));
+		this.deleteMessage(sendMessage, ["❌", "💰"]);
 	}
 
 	async punishCommand(message) {
