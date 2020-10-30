@@ -2,6 +2,7 @@ const Discord = require('discord.js');
 const Client = new Discord.Client();
 const command = require('./command');
 
+const payImage = "https://media1.tenor.com/images/db69b8611844cf9f9ac0f278f7b5ab38/tenor.gif?itemid=15541947";
 const images = [
 	"https://media1.tenor.com/images/e36fb32cfc3b63075adf0f1843fdc43a/tenor.gif",
 	"https://media2.giphy.com/media/XzkGfRsUweB9ouLEsE/giphy.gif",
@@ -43,6 +44,7 @@ const images = [
 	"https://pm1.narvii.com/6830/fdf39d59c6497718efa61d46eee6cc18007fde80v2_hq.jpg"
 ];
 
+
 class Commands {
 	constructor(categotyName, channelName, roleName, time) {
 		this.categotyName = categotyName;
@@ -51,12 +53,12 @@ class Commands {
 		this.time = time;
 	}
 
-	createMessage(text) {
-		const image = images[Math.floor(Math.random() * images.length)];
+	createMessage(image, text, desc = "") {
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
 			.setImage(image)
+			.description()
 			.setTimestamp()
 			.setFooter('React with ❌ to delete this post.');
 	}
@@ -84,8 +86,13 @@ class Commands {
 	}
 
 	async daddyCommand(message, text) {
-		const sendMessage = await message.channel.send(this.createMessage(text));
-		// await sendMessage.react('❌');
+		const image = images[Math.floor(Math.random() * images.length)];
+		const sendMessage = await message.channel.send(image, this.createMessage(text));
+		this.deleteMessage(sendMessage);
+	}
+
+	async payCommand(message, text) {
+		const sendMessage = await message.channel.send(payImage, this.createMessage(text), "testing");
 		this.deleteMessage(sendMessage);
 	}
 
@@ -175,6 +182,11 @@ Client.once('ready', () => {
 	command(Client, process.env.DADDY, message => {
 		console.log('Typed daddy');
 		commands.daddyCommand(message, 'Yes my child!');
+	});
+
+	command(Client, process.env.PAY, message => {
+		console.log('Typed pay');
+		commands.payCommand(message, 'A soul for a soul.');
 	});
 });
 
