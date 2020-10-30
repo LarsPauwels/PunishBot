@@ -58,7 +58,7 @@ class Commands {
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
-			// .setDescription(desc)
+			.setDescription(desc)
 			.setImage(image)
 			.setTimestamp()
 			.setFooter('React with ❌ to delete this post.');
@@ -88,12 +88,12 @@ class Commands {
 
 	async daddyCommand(message, text) {
 		const image = images[Math.floor(Math.random() * images.length)];
-		const sendMessage = await message.channel.send(image, this.createMessage(text));
+		const sendMessage = await message.channel.send(this.createMessage(image, text));
 		this.deleteMessage(sendMessage);
 	}
 
 	async payCommand(message, text) {
-		const sendMessage = await message.channel.send(payImage, this.createMessage(text), "testing");
+		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "testing"));
 		this.deleteMessage(sendMessage);
 	}
 
