@@ -18,14 +18,15 @@ const images = [
 	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db98fdf9-06ad-4108-8878-512d5d1edc9a/dcszhgy-38980b48-9b17-430f-b57a-461b96fb0717.jpg/v1/fill/w_1280,h_1280,q_75,strp/thanos_daddy_pig_by_karrimara_dcszhgy-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMjgwIiwicGF0aCI6IlwvZlwvZGI5OGZkZjktMDZhZC00MTA4LTg4NzgtNTEyZDVkMWVkYzlhXC9kY3N6aGd5LTM4OTgwYjQ4LTliMTctNDMwZi1iNTdhLTQ2MWI5NmZiMDcxNy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.bTvRNxDYJ2x7gsoWP9suqpZR7ZRbAXTYrKDh4F6nwzU",
 	"https://pbs.twimg.com/media/Dc54N1pXkAIii5w.jpg",
 	"https://pics.me.me/snap-me-daddy-thanos-i-want-to-be-in-the-44056355.png",
-	"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRn41qJGXZq0eDUS5yKkVn3cFGMyYskw41nXQ&usqp=CAU",
+	"https://preview.redd.it/1fva2g7w9xe11.jpg?auto=webp&s=e3056c23c7b3ccc3dcf47edd181541f6357b338f",
 	"https://pm1.narvii.com/7320/eb0e607b0ec72a258448c55daff9569d37922db7r1-1600-1581v2_uhq.jpg",
 	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/878e586c-b9ef-4573-9b2e-4798703b74b8/dclgvaj-029673c6-a7c7-43ca-b978-2500d6964316.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvODc4ZTU4NmMtYjllZi00NTczLTliMmUtNDc5ODcwM2I3NGI4XC9kY2xndmFqLTAyOTY3M2M2LWE3YzctNDNjYS1iOTc4LTI1MDBkNjk2NDMxNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vjPwzjqTagGFiu5lvLdw76noixCVII1BTSzxoWM7OzQ",
 	"https://i.redd.it/76bf2xwyj8q31.jpg"
 ];
 
 class Commands {
-	constructor(channelName, roleName, time) {
+	constructor(categotyName, channelName, roleName, time) {
+		this.categotyName = categotyName;
 		this.channelName = channelName;
 		this.roleName = roleName;
 		this.time = time;
@@ -41,7 +42,8 @@ class Commands {
 		if (member) {
 			message.channel.send('*SNAP*', {files: [images[Math.floor(Math.random() * images.length)]]});
 			message.guild.channels.cache.forEach(ch => {
-				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") && ch.name !== "Thanos Dungeon") {
+				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
+					(ch.name !== current.channelName || ch.name !== current.categoryName)) {
 					console.log(ch.name);
 					ch.overwritePermissions([{
 				    	id: role.id,
@@ -111,7 +113,7 @@ class Commands {
 
 Client.once('ready', () => {
 	console.log('Bot started');
-	const commands = new Commands(process.env.CHANNEL, process.env.ROLE, process.env.TIME);
+	const commands = new Commands(process.env.CATEGORY, process.env.CHANNEL, process.env.ROLE, process.env.TIME);
 	
 	command(Client, process.env.PUNISH, message => {
 		console.log('Typed punish');
