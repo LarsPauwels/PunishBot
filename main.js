@@ -3,7 +3,10 @@ const Fetch = require('node-fetch');
 const Client = new Discord.Client();
 const command = require('./command');
 
-const payImage = "https://media1.tenor.com/images/db69b8611844cf9f9ac0f278f7b5ab38/tenor.gif";
+const payImage = [
+	"https://media1.tenor.com/images/db69b8611844cf9f9ac0f278f7b5ab38/tenor.gif",
+	"https://thumbs.gfycat.com/BabyishSmartFoxhound-size_restricted.gif"
+];
 const images = [
 	"https://media1.tenor.com/images/e36fb32cfc3b63075adf0f1843fdc43a/tenor.gif",
 	"https://media2.giphy.com/media/XzkGfRsUweB9ouLEsE/giphy.gif",
@@ -64,8 +67,8 @@ class Commands {
 			.setFooter(`React with ${icon} to pay.`);
 	}
 
-	async deleteMessage(message) {
-		const emoji = await this.emojiMessage(message, ["❌", "💰"]);
+	async deleteMessage(message, $icons = ["❌"]) {
+		const emoji = await this.emojiMessage(message, $icons);
 		if (emoji === "❌") {
 			if (message.deletable == true) {
 				console.log("Delete message");
@@ -94,8 +97,8 @@ class Commands {
 		await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
 		    .then(res => res.json())
 		    .then(text => {
-		    	message.channel.send(current.createMessage(payImage, "Price have been payed.", text.insult)).then((sendMessage) => {
-		    		current.deleteMessage(sendMessage);
+		    	message.channel.send(current.createMessage(payImage[1], "Price have been payed.", text.insult)).then((sendMessage) => {
+		    		current.deleteMessage(sendMessage, ["❌", "💰"]);
 		    	});
 		    });
 	}
@@ -107,7 +110,7 @@ class Commands {
 	}
 
 	async payCommand(message, text) {
-		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "💰"));
+		const sendMessage = await message.channel.send(this.createMessage(payImage[0], text, "💰"));
 		this.deleteMessage(sendMessage);
 	}
 
