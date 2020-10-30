@@ -118,11 +118,11 @@ Client.once('ready', () => {
 });
 
 class Setup {
-	constructor(guild, categoryName, channelName, role) {
+	constructor(guild, categoryName, channelName, roleName) {
 	    this.guild = guild;
 	    this.categoryName = categoryName;
 	    this.channelName = channelName;
-	    this.role = role;
+	    this.roleName = roleName;
 
 	    this.createCategory();
 	    this.createRole();
