@@ -98,7 +98,7 @@ class Commands {
 
 					member.roles.remove(role).catch(console.error);
 					member.voice.setChannel(currentChannel);
-				}, current.time);
+				}, 60000);
 			});
 		} else {
 			message.channel.send('Choose someone that exists.');
