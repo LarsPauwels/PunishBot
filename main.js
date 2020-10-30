@@ -56,7 +56,6 @@ class Commands {
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
-			.setThumbnail(image)
 			.setImage(image)
 			.setTimestamp()
 			.setFooter('React with ❌ to delete this post.');
