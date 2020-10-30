@@ -132,9 +132,9 @@ class Commands {
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
 		const member = message.mentions.members.first();
 		const channel = Client.channels.cache.find(channel => channel.name === this.channelName);
-		const currentChannel = member.voice.channelID;
 
 		if (member) {
+			const currentChannel = member.voice.channelID;
 			await this.daddyCommand(message, '\*SNAP*');
 			// await message.guild.channels.cache.forEach(ch => {
 			// 	if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") &&
@@ -196,7 +196,8 @@ class Commands {
 				}, 60000);
 			});
 		} else {
-			message.channel.send('Choose someone that exists.');
+			const sendMessage = await message.channel.send(this.createMessage("", "Choose someone that exists."));
+			this.deleteMessage(sendMessage);
 		}
 	}
 }
