@@ -91,7 +91,7 @@ class Commands {
 
 	async getInsult(message) {
 		const current = this;
-		await fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
+		await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
 		    .then(res => res.text())
 		    .then(text => {
 		    	message.channel.send(current.createMessage(payImage, "Price have been payed.", text.insult));
