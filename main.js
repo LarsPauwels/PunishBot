@@ -63,7 +63,7 @@ class Commands {
 	}
 
 	async daddyCommand(message, text) {
-		await message.channel.send(createMessage);
+		await message.channel.send(this.createMessage(text));
 	}
 
 	async punishCommand(message) {
