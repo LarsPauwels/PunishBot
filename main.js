@@ -60,7 +60,7 @@ class Commands {
 			.setDescription(desc)
 			.setImage(image)
 			.setTimestamp()
-			.setFooter(`React with ${icon} to delete this post.`);
+			.setFooter(`React with ${icon} to pay.`);
 	}
 
 	async deleteMessage(message) {
@@ -70,6 +70,9 @@ class Commands {
 				console.log("Delete message");
 				message.delete();
 			}
+		} else if (emoji === "💰") {
+			console.log("Add pay message");
+			const sendMessage = await message.channel.send(this.createMessage(payImage, "Price have been payed.", "testing"));
 		}
 	}
 
@@ -92,7 +95,7 @@ class Commands {
 	}
 
 	async payCommand(message, text) {
-		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "testing", "💰"));
+		const sendMessage = await message.channel.send(this.createMessage(payImage, text, "💰"));
 		this.deleteMessage(sendMessage);
 	}
 
