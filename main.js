@@ -85,8 +85,8 @@ class Commands {
 
 	async daddyCommand(message, text) {
 		const sendMessage = await message.channel.send(this.createMessage(text));
-		await sendMessage.react('❌');
-		this.deleteMessage(message);
+		// await sendMessage.react('❌');
+		this.deleteMessage(sendMessage);
 	}
 
 	async punishCommand(message) {
