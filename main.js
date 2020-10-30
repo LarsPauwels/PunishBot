@@ -91,14 +91,14 @@ class Commands {
 				    member.voice.setDeaf(true);
 				}
 
-				current.sleep(current.time, channel, member, role);
+				current.sleep(current.time, channel, member, role, currentChannel);
 			});
 		} else {
 			message.channel.send('Choose someone that exists.');
 		}
 	}
 
-	sleep(ms, channel, member, role) {
+	sleep(ms, channel, member, role, currentChannel) {
 		setTimeout(() => { 
 			for (const [memberID, member] of channel.members) {
 			    member.voice.setMute(false);
