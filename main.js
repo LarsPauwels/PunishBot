@@ -2,7 +2,7 @@ const Discord = require('discord.js');
 const Client = new Discord.Client();
 const command = require('./command');
 
-const payImage = "https://media1.tenor.com/images/db69b8611844cf9f9ac0f278f7b5ab38/tenor.gif?itemid=15541947";
+const payImage = "https://media1.tenor.com/images/db69b8611844cf9f9ac0f278f7b5ab38/tenor.gif";
 const images = [
 	"https://media1.tenor.com/images/e36fb32cfc3b63075adf0f1843fdc43a/tenor.gif",
 	"https://media2.giphy.com/media/XzkGfRsUweB9ouLEsE/giphy.gif",
@@ -54,11 +54,12 @@ class Commands {
 	}
 
 	createMessage(image, text, desc = "") {
+		console.log(image);
 		return new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
-			.setImage(image)
 			.setDescription(desc)
+			.setImage(image)
 			.setTimestamp()
 			.setFooter('React with ❌ to delete this post.');
 	}
