@@ -36,13 +36,13 @@ class Commands {
 		const role = message.guild.roles.cache.find(role => role.name === this.roleName);
 		const member = message.mentions.members.first();
 		const channel = Client.channels.cache.find(channel => channel.name === this.channelName);
-		console.log(channel);
 		const currentChannel = member.voice.channelID;
 
 		if (member) {
 			message.channel.send('*SNAP*', {files: [images[Math.floor(Math.random() * images.length)]]});
 			message.guild.channels.cache.forEach(ch => {
 				if ((ch.type == "text" || ch.type == "voice" || ch.type == "category") && ch.name !== "Thanos Dungeon") {
+					console.log(ch.name);
 					ch.overwritePermissions([{
 				    	id: role.id,
 				     	deny: [
