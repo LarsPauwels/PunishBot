@@ -92,10 +92,11 @@ class Commands {
 	async getInsult(message) {
 		const current = this;
 		await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
-		    .then(res => res.text())
+		    .then(res => res.json())
 		    .then(text => {
-		    	console.log(text.insult);
-		    	message.channel.send(current.createMessage(payImage, "Price have been payed.", text.insult));
+		    	console.log(text);
+		    	const sendMessage = message.channel.send(current.createMessage(payImage, "Price have been payed.", text));
+		    	current.deleteMessage(sendMessage);
 		    });
 	}
 
