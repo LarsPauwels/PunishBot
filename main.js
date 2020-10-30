@@ -1,4 +1,5 @@
 const Discord = require('discord.js');
+const Fetch = require('node-fetch');
 const Client = new Discord.Client();
 const command = require('./command');
 
@@ -72,7 +73,7 @@ class Commands {
 			}
 		} else if (emoji === "💰") {
 			console.log("Add pay message");
-			const sendMessage = await message.channel.send(this.createMessage(payImage, "Price have been payed.", "testing"));
+			this.getInsult(message);
 		}
 	}
 
@@ -86,6 +87,15 @@ class Commands {
                 time: 42000
             })
             .then(collected => collected.first() && collected.first().emoji.name);
+	}
+
+	async getInsult(message) {
+		const current = this;
+		await fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
+		    .then(res => res.text())
+		    .then(text => {
+		    	message.channel.send(current.createMessage(payImage, "Price have been payed.", text.insult));
+		    }));
 	}
 
 	async daddyCommand(message, text) {
