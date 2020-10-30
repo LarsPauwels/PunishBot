@@ -57,14 +57,22 @@ class Commands {
 		this.time = time;
 	}
 
-	createMessage(image, text, desc = "") {
-		return new Discord.MessageEmbed()
+	createMessage(image, text, desc = "", fields = undefined) {
+		let newMessage = new Discord.MessageEmbed()
 			.setColor('#0099ff')
 			.setTitle(text)
 			.setDescription(desc)
 			.setImage(image)
 			.setTimestamp()
 			.setFooter(`React with ❌ to delete this post.`);
+
+		for (var i = 0; i < fields.length; i++) {
+			newMessage.addFields(
+				fields[i]
+			)
+		}
+
+		return newMessage;
 	}
 
 	async deleteMessage(message, $icons = ["❌"]) {
@@ -205,6 +213,15 @@ Client.once('ready', () => {
 	command(Client, process.env.PAY, message => {
 		console.log('Typed pay');
 		commands.payCommand(message, 'A soul for a soul.');
+	});
+
+	command(Client, process.env.HELP, message => {
+		console.log('Typed help');
+		commands.payCommand(message, 'PunishMeThanos Command Help', "", [
+			{ name: 'Daddy Command', value: 'Returns appropriate images of our lord and Thanos.' },
+			{ name: 'Pay Command', value: 'Pay with getting your soul crushed or leave.' },
+			{ name: 'Punish Command', value: 'Send a naughty boy to Thanos Dungeon. (Use @username)' }
+		]);
 	});
 });
 
