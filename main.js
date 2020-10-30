@@ -14,6 +14,12 @@ const images = [
 	"https://cdn.discordapp.com/attachments/711007902126833704/711010678650961940/thanos_portrait_front_by_hellboysoto_ddh0osb-fullview.png",
 	"https://cdn.discordapp.com/attachments/711007902126833704/711009230454390804/images.png",
 	"https://cdn.discordapp.com/attachments/711007902126833704/711009788678373446/dc5gxxo-d5994c4e-0472-45cc-add4-cb0d130949db.png",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/e9f348f4-e017-4a33-a56f-2690adc31493/dd8pjwv-fb76a6b1-5238-42fd-82ff-7ca090064b13.jpg/v1/fill/w_1024,h_663,q_75,strp/muffin_snuggling_pirate_puncher_by_cronaj_dd8pjwv-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD02NjMiLCJwYXRoIjoiXC9mXC9lOWYzNDhmNC1lMDE3LTRhMzMtYTU2Zi0yNjkwYWRjMzE0OTNcL2RkOHBqd3YtZmI3NmE2YjEtNTIzOC00MmZkLTgyZmYtN2NhMDkwMDY0YjEzLmpwZyIsIndpZHRoIjoiPD0xMDI0In1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.tRYVZIW3zHN1DD4UydUWu-mABAjkjU1dUp_RqYUnZjQ",
+	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/db98fdf9-06ad-4108-8878-512d5d1edc9a/dcszhgy-38980b48-9b17-430f-b57a-461b96fb0717.jpg/v1/fill/w_1280,h_1280,q_75,strp/thanos_daddy_pig_by_karrimara_dcszhgy-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3siaGVpZ2h0IjoiPD0xMjgwIiwicGF0aCI6IlwvZlwvZGI5OGZkZjktMDZhZC00MTA4LTg4NzgtNTEyZDVkMWVkYzlhXC9kY3N6aGd5LTM4OTgwYjQ4LTliMTctNDMwZi1iNTdhLTQ2MWI5NmZiMDcxNy5qcGciLCJ3aWR0aCI6Ijw9MTI4MCJ9XV0sImF1ZCI6WyJ1cm46c2VydmljZTppbWFnZS5vcGVyYXRpb25zIl19.bTvRNxDYJ2x7gsoWP9suqpZR7ZRbAXTYrKDh4F6nwzU",
+	"https://pbs.twimg.com/media/Dc54N1pXkAIii5w.jpg",
+	"https://pics.me.me/snap-me-daddy-thanos-i-want-to-be-in-the-44056355.png",
+	"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRn41qJGXZq0eDUS5yKkVn3cFGMyYskw41nXQ&usqp=CAU",
+	"https://pm1.narvii.com/7320/eb0e607b0ec72a258448c55daff9569d37922db7r1-1600-1581v2_uhq.jpg",
 	"https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/878e586c-b9ef-4573-9b2e-4798703b74b8/dclgvaj-029673c6-a7c7-43ca-b978-2500d6964316.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOiIsImlzcyI6InVybjphcHA6Iiwib2JqIjpbW3sicGF0aCI6IlwvZlwvODc4ZTU4NmMtYjllZi00NTczLTliMmUtNDc5ODcwM2I3NGI4XC9kY2xndmFqLTAyOTY3M2M2LWE3YzctNDNjYS1iOTc4LTI1MDBkNjk2NDMxNi5wbmcifV1dLCJhdWQiOlsidXJuOnNlcnZpY2U6ZmlsZS5kb3dubG9hZCJdfQ.vjPwzjqTagGFiu5lvLdw76noixCVII1BTSzxoWM7OzQ"
 ];
 
@@ -168,4 +174,4 @@ Client.on('guildCreate', guild => {
 	}
 });
 
-Client.login(config.token);
+Client.login(process.env.BOT_TOKEN);
