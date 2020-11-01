@@ -1,7 +1,7 @@
 const images = require('../json/images.json');
 const Discord = require('discord.js');
 
-function createMessage(message, image, text, desc = "", fields = []) {
+async function createMessage(message, image, text, desc = "", fields = []) {
 	let newMessage = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(text)
