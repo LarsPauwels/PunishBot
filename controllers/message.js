@@ -23,6 +23,7 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 
 function deleteMessage(message) {
 	const emoji = addEmoji(message, ["❌"]);
+	console.log(emoji);
 	if (emoji === "❌") {
 		if (message.deletable == true) {
 			console.log("Delete message");
