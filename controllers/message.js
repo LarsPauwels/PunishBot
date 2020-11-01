@@ -44,9 +44,14 @@ async function checkReaction(reaction) {
 		try {
 			const emoji = await reaction.fetch();
 			console.log(emoji);
+			if (emoji === "❌") {
+				if (message.deletable == true) {
+					console.log("Delete message");
+					message.delete();
+				}
+			}
 		} catch (error) {
 			console.error('Something went wrong when fetching the message: ', error);
-			
 			return;
 		}
 	}
