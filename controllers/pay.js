@@ -1,7 +1,7 @@
 import * as images from './json/images.json';
 import {createMessage, addEmoji} from './message';
 
-async pay(message) {
+async function pay(message) {
   const sendMessage = await message.channel.send(createMessage(images.payImages[0], 'A soul for a soul.'));
   const emoji = await addEmoji(sendMessage, ["💰"]);
   
@@ -11,7 +11,7 @@ async pay(message) {
   }
 }
 
-async getInsult(message) {
+async function getInsult(message) {
 	await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     .then(res => res.json())
     .then(text => {

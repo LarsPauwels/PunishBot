@@ -1,6 +1,6 @@
 import {createMessage} from './message';
 
-async help(message) {
+async function help(message) {
 	const commands = [
 		{ name: 'Daddy Command', value: '`Thanos daddy`: Returns appropriate images of our lord and savior Thanos.' },
 		{ name: 'Pay Command', value: '`Thanos pay`: Pay with getting your soul crushed or leave.' },

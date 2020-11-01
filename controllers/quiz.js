@@ -2,7 +2,7 @@ import * as images from './json/images.json';
 import * as quiz from './json/quiz.json';
 import {createMessage, addEmoji} from './message';
 
-async quiz(message) {
+async function quiz(message) {
   const q = quiz.thanos[Math.floor(Math.random() * quiz.thanos.length)];
   const letter = 97;
   let answers = [], 
@@ -22,7 +22,7 @@ async quiz(message) {
   }
 }
 
-async checkAnswer(message, emoji, correct) {
+async function checkAnswer(message, emoji, correct) {
 	if (emoji === correct) {
     await message.channel.send(createMessage(images.quizImages[0], "You got it right!"));
     return true;

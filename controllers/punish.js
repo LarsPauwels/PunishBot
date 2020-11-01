@@ -1,6 +1,6 @@
 import {createMessage} from './message';
 
-async punish(message, Client) {
+async function punish(message, Client) {
 	const current = this;
 	const role = message.guild.roles.cache.find(role => role.name === process.env.ROLE);
 	const member = message.mentions.members.first();

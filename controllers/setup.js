@@ -1,9 +1,9 @@
-async setup(guild) {
+async function setup(guild) {
   createCategory(guild);
   createRole(guild);
 }
 
-createCategory(guild) {
+function createCategory(guild) {
   const channel = guild.channels.cache.find(c => c.name === process.env.CHANNEL);
   if (!channel) {
     guild.channels
@@ -23,7 +23,7 @@ createCategory(guild) {
   }
 }
 
-createChannel(guild, category) {
+function createChannel(guild, category) {
   guild.channels
     .create(process.env.CHANNEL, {
         type: 'voice',
@@ -35,7 +35,7 @@ createChannel(guild, category) {
       .catch(console.error);
 }
 
-createRole(guild) {
+function createRole(guild) {
     const role = guild.roles.cache.find(x => x.name == process.env.ROLE);
       if(!role) {
         guild.roles.create({
