@@ -17,18 +17,12 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 	}
 
 	const sendMessage = await message.channel.send(newMessage);
-	await deleteMessage(sendMessage);
+	await addDeleteEmoji(sendMessage);
 	return sendMessage;
 }
 
-async function deleteMessage(message) {
-	const emoji = await addEmoji(message, ["❌"]);
-	if (emoji === "❌") {
-		if (message.deletable == true) {
-			console.log("Delete message");
-			message.delete();
-		}
-	}
+async function addDeleteEmoji(message) {
+	await addEmoji(message, ["❌"]);
 }
 
 async function addEmoji(message, icons, waitReact = false) {
@@ -45,4 +39,17 @@ async function addEmoji(message, icons, waitReact = false) {
 	}
 }
 
-module.exports = { createMessage: createMessage, addEmoji: addEmoji };
+async function checkReaction(reaction) {
+	if (reaction.partial) {
+		try {
+			const emoji = await reaction.fetch();
+			console.log(emoji);
+		} catch (error) {
+			console.error('Something went wrong when fetching the message: ', error);
+			
+			return;
+		}
+	}
+}
+
+module.exports = { createMessage: createMessage, addEmoji: addEmoji, checkReaction: checkReaction };

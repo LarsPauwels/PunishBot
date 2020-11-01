@@ -9,6 +9,7 @@ const Help = require('./controllers/help');
 const Punish = require('./controllers/punish');
 const Quiz = require('./controllers/quiz');
 const Pay = require('./controllers/pay');
+const Message = require('./controllers/message');
 
 Client.once('ready', () => {
 	console.log('Bot started');
@@ -47,6 +48,10 @@ Client.once('ready', () => {
 Client.on('guildCreate', guild => {
 	console.log("Setup Bot");
 	Setup(guild);
+});
+
+Client.on('messageReactionAdd', async (reaction, user) => {
+	Message.checkReaction(reaction);
 });
 
 Client.login(process.env.BOT_TOKEN);
