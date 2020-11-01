@@ -6,14 +6,13 @@ module.exports = async (message) => {
   const q = quiz.thanos[Math.floor(Math.random() * quiz.thanos.length)];
   const letter = 97;
   let answers = [], 
-      icons = [];
+      icons = ["🇦", "🇧", "🇨", "🇩", "🇪", "🇫", "🇬", "🇭", "🇮", "🇯", "🇰", "🇱", "🇲", "🇳", "🇴", "🇵", "🇶", "🇷", "🇸", "🇹", "🇺", "🇻", "🇼", "🇽", "🇾", "🇿"];
   for (var i = 0; i < q.answers.length; i++) {
-    icons.push(`:regional_indicator_${String.fromCharCode(letter + i)}:`);
-    answers.push({ name: `Answer ${icons[i]}:`, value: q.answers });
+    answers.push({ name: `Answer ${icons[i]}:`, value: q.answers[i] });
   }
   
   const sendMessage = await Message.createMessage(message, "", q.question, "", answers);
-  const emoji = await Message.addEmoji(sendMessage, icons);
+  const emoji = await Message.addEmoji(sendMessage, icons.slice(0, q.answers.length - 1));
 
   for (var i = 0; i < icons.length; i++) {
     if (emoji === icons[i]) {
