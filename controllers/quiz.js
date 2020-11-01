@@ -31,4 +31,4 @@ async function checkAnswer(message, emoji, correct) {
   return false;
 }
 
-exports default quiz;
+export default quiz;

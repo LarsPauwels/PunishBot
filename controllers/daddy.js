@@ -6,4 +6,4 @@ async function daddy(message) {
   const sendMessage = await message.channel.send(createMessage(image, 'Yes my child!'));
 }
 
-exports default daddy;
+export default daddy;

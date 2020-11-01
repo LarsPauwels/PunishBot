@@ -19,4 +19,4 @@ async function getInsult(message) {
     });
 }
 
-exports default pay;
+export default pay;

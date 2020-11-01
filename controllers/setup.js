@@ -82,4 +82,4 @@ function createRole(guild) {
     }
   }
 
-exports default setup;
+export default setup;

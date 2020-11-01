@@ -32,4 +32,4 @@ async function punish(message, Client) {
 		}
 }
 
-exports default punish;
+export default punish;
