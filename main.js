@@ -320,7 +320,7 @@ class Commands {
                 cAwnser = '🇩';
                 break;     
 		}
-		awnsered = false;
+		let awnsered = false;
 		this.deleteMessage(sendMessage, ["❌", "🇦", "🇧", "🇨", "🇩"]);
 	}
 }
