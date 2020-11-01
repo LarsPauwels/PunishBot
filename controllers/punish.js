@@ -1,14 +1,14 @@
 const Message = require('./message');
 
 module.exports = async (message, Client) => {
-	const current = this;
 	const role = message.guild.roles.cache.find(role => role.name === process.env.ROLE);
 	const member = message.mentions.members.first();
 	const channel = Client.channels.cache.find(channel => channel.name === process.env.CHANNEL);
 
 	if (member) {
+			const image = images.random[Math.floor(Math.random() * images.random.length)];
 			const currentChannel = member.voice.channelID;
-			await Message.createMessage(message, "*SNAP*", "");
+			await Message.createMessage(message, image, "*SNAP*", "");
 			await member.roles.add(role).catch(console.error);
 
 			await member.voice.setChannel(channel).then(() => {
@@ -28,6 +28,6 @@ module.exports = async (message, Client) => {
 				}, process.env.TIME);
 			});
 		} else {
-			await Message.createMessage(message, "Vanished", "This person already vanished.");
+			await Message.createMessage(message, "", "Vanished", "This person already vanished.");
 		}
 }
