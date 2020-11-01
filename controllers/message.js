@@ -33,14 +33,17 @@ async function deleteMessage(message) {
 
 async function addEmoji(message, icons) {
 	for (const reaction of icons) await message.react(reaction);
-  	const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
+}
+
+function waitReact(icons) {
+	const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 
 	return message
     .awaitReactions(filter, {
         max: 1,
-        time: 42000
+        time: 60000
     })
     .then(collected => collected.first() && collected.first().emoji.name);
 }
 
-module.exports = { createMessage: createMessage, addEmoji: addEmoji };
+module.exports = { createMessage: createMessage, addEmoji: addEmoji, waitReact: waitReact };
