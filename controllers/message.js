@@ -1,7 +1,7 @@
 const images = require('../json/images.json');
 const Discord = require('discord.js');
 
-function createMessage(image, text, desc = "", fields = []) {
+function createMessage(message, image, text, desc = "", fields = []) {
 	let newMessage = new Discord.MessageEmbed()
 		.setColor('#0099ff')
 		.setTitle(text)
@@ -16,9 +16,9 @@ function createMessage(image, text, desc = "", fields = []) {
 		)
 	}
 
-	deleteMessage(newMessage);
-
-	return newMessage;
+	const sandMessage = await message.channel.send(newMessage);
+	await deleteMessage(sandMessage);
+	return sandMessage;
 }
 
 function deleteMessage(message) {
@@ -32,7 +32,6 @@ function deleteMessage(message) {
 }
 
 async function addEmoji(message, icons) {
-	console.log(message);
 	for (const reaction of icons) await message.react(reaction);
   const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 

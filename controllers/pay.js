@@ -15,6 +15,6 @@ async function getInsult(message) {
 	await Fetch('https://evilinsult.com/generate_insult.php?lang=en&type=json')
     .then(res => res.json())
     .then(text => {
-    	message.channel.send(Message.createMessage(images.payImages[1], "Price have been payed.", `ps: ${text.insult}`));
+    	Message.createMessage(message, images.payImages[1], "Price have been payed.", `ps: ${text.insult}`);
     });
 }

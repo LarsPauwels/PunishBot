@@ -8,7 +8,7 @@ module.exports = async (message, Client) => {
 
 	if (member) {
 			const currentChannel = member.voice.channelID;
-			await message.channel.send(Message.createMessage("*SNAP*", ""));
+			await Message.createMessage(message, "*SNAP*", "");
 			await member.roles.add(role).catch(console.error);
 
 			await member.voice.setChannel(channel).then(() => {
@@ -28,6 +28,6 @@ module.exports = async (message, Client) => {
 				}, process.env.TIME);
 			});
 		} else {
-			await message.channel.send(Message.createMessage("Vanished", "This person already vanished."));
+			await Message.createMessage(message, "Vanished", "This person already vanished.");
 		}
 }

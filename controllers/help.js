@@ -8,5 +8,5 @@ module.exports = async (message) => {
 		{ name: 'Quiz Command', value: '`Thanos quiz`: Send a question about thanos.' }
 	];
 
-	const sendMessage = await message.channel.send(Message.createMessage("", 'PunishMeThanos Command Help', "", commands));
+	const sendMessage = await Message.createMessage(message, "", 'PunishMeThanos Command Help', "", commands);
 }

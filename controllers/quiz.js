@@ -12,7 +12,7 @@ module.exports = async (message) => {
     answers.push({ name: `Answer ${icons[i]}:`, value: q.answers });
   }
   
-  const sendMessage = await message.channel.send(Message.createMessage("", q.question, "", answers));
+  const sendMessage = await Message.createMessage(message, "", q.question, "", answers);
   const emoji = await Message.addEmoji(sendMessage, icons);
 
   for (var i = 0; i < icons.length; i++) {
@@ -24,9 +24,9 @@ module.exports = async (message) => {
 
 async function checkAnswer(message, emoji, correct) {
 	if (emoji === correct) {
-    await message.channel.send(Message.createMessage(images.quizImages[0], "You got it right!"));
+    await Message.createMessage(message, images.quizImages[0], "You got it right!");
     return true;
   }
-  await message.channel.send(Message.createMessage(images.quizImages[1], "You know nothing of me!"));
+  await Message.createMessage(message, images.quizImages[1], "You know nothing of me!");
   return false;
 }
