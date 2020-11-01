@@ -40,6 +40,7 @@ async function addEmoji(message, icons, waitReact = false) {
 }
 
 async function checkReaction(reaction) {
+	console.log(reaction.partial);
 	if (reaction.partial) {
 		try {
 			const emoji = await reaction.fetch();
