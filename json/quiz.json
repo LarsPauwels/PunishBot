@@ -1,0 +1,185 @@
+{
+	"thanos": [{
+		"question": "Who Was The First Hero Thanos Fought When He Landed In Wakanda?",
+		"answers": [
+			"Bruce Banner",
+			"Captain America",
+			"Black Panther",
+			"Falcon"
+		],
+		"correct": "🇦"
+	},
+	{
+		"question": "Which Was The Third Stone Thanos Added To His Gauntlet?",
+		"answers": [
+			"Soul stone",
+			"Time stone",
+			"Mind stone",
+			"Reality stone"
+		],
+		"correct": "🇩"
+	},
+	{
+		"question": "What Were The First Words Uttered By Thanos In The MCU?",
+		"answers": [
+			"Your politics bore me",
+			"Your demeanour is that of a pouting child",
+			"The only matter I do not take seriously, boy, is you",
+			"Return to me again empty handed, and i will bath the starways with your blood"
+		],
+		"correct": "🇨"
+	},
+	{
+		"question": "What Did Thanos Call The Avengers When He Saw Them In Nebula's Memory File?",
+		"answers": [
+			"Earth's mightiest heroes",
+			"Defenders of earth",
+			"Unruly wretches",
+			"Pathetic humans"
+		],
+		"correct": "🇨"
+	},
+	{
+		"question": "Who Did Thanos Not Engage In One-On-One Combat With?",
+		"answers": [
+			"Rocket",
+			"Warmachine",
+			"Falcon",
+			"Groot"
+		],
+		"correct": "🇦"
+	},
+	{
+		"question": "When Fighting Iron Man, Captain America, And Thor, Who Did Thanos Hit First?",
+		"answers": [
+			"Iron man",
+			"Captain America",
+			"Thor"
+		],
+		"correct": "🇦"
+	},
+	{
+		"question": "Who Was The First Hero Shown To Be Killed By Thanos In Infinity War?",
+		"answers": [
+			"Loki",
+			"Heimdall",
+			"An unnames asgardion",
+			"Miek"
+		],
+		"correct": "🇧"
+	},
+	{
+		"question": "How Long Was There Between Thanos' First Snap And His Destroying Of The Stones?",
+		"answers": [
+			"20 days",
+			"21 days",
+			"22 days",
+			"23 days"
+		],
+		"correct": "🇧"
+	},
+	{
+		"question": "Which Of Thanos' Hands Did Thor Cut Off?",
+		"answers": [
+			"Right",
+			"Left",
+			"None"
+		],
+		"correct": "🇧"
+	},
+	{
+		"question": "How Many Times Did Thanos Punch The Hulk At The Beginning Of Infinity War?",
+		"answers": [
+			"6",
+			"8",
+			"10",
+			"12"
+		],
+		"correct": "🇨"
+	}, 
+	{
+		"question": "Which Two Stones Did Thanos Use When Doctor Strange Multiplied Himself?",
+		"answers": [
+			"Power and Space",
+			"Reality and Space",
+			"Soul and Power",
+			"Soul and Reality"
+		],
+		"correct": "🇨"
+	}, 
+	{
+		"question": "What Happened When Thanos Headbutted Captain Marvel?",
+		"answers": [
+			"She flew back",
+			"He flew back",
+			"Both flew back",
+			"Nothing"
+		],
+		"correct": "🇩"
+	}, 
+	{
+		"question": "Who First Greeted Thanos When He Arrived On Titan In Infinity War?",
+		"answers": [
+			"Iron man",
+			"Star lord",
+			"Doctor strange",
+			"Nebula"
+		],
+		"correct": "🇨"
+	}, 
+	{
+		"question": "What Is The Name Of Thanos' Ship?",
+		"answers": [
+			"Sanctuary",
+			"Sanctuary II",
+			"Sanctuary III",
+			"Sanctuary IV"
+		],
+		"correct": "🇧"
+	},
+	{
+		"question": "Complete The Quote - \"Your Optimism Is ..., Asgardian?\"",
+		"answers": [
+			"Disturbing",
+			"Pathetic",
+			"Misplaced",
+			"Useless"
+		],
+		"correct": "🇨"
+	},
+	{
+		"question": "What Is Thanos' Father's Name?",
+		"answers": [
+			"Eros",
+			"A'Lars",
+			"Sui-San",
+			"Thane"
+		],
+		"correct": "🇧"
+	},
+	{
+		"question": "According To Nebula, What Did Thanos Call His Plan To Collect The Infinity Stones?",
+		"answers": [
+			"His great plan",
+			"His infinity plan",
+			"His infinty quest",
+			"His noble quest"
+		],
+		"correct": "🇦"
+	},
+	{
+		"question": "When Fighting Which Hero Did Thanos Command For His Army To Rain Fire?",
+		"answers": [
+			"Captain marvel",
+			"Thor",
+			"Doctor strange",
+			"Scarlet witch"
+		],
+		"correct": "🇩"
+	}]
+}
+
+// :regional_indicator_a:)
+// :regional_indicator_b:)
+// :regional_indicator_c:)
+// :regional_indicator_d:)
