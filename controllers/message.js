@@ -16,8 +16,8 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 		)
 	}
 
-	const sandMessage = await message.channel.send(newMessage);
-	await deleteMessage(sandMessage);
+	const sendMessage = await message.channel.send(newMessage);
+	await deleteMessage(sendMessage);
 	return sandMessage;
 }
 
@@ -34,12 +34,13 @@ function deleteMessage(message) {
 
 async function addEmoji(message, icons) {
 	for (const reaction of icons) await message.react(reaction);
-  const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
+  	const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 
+  	console.log("test");
 	return message
     .awaitReactions(filter, {
         max: 1,
-        time: 42000
+        time: 60000
     })
     .then(collected => collected.first() && collected.first().emoji.name);
 }
