@@ -38,7 +38,7 @@ async function addEmoji(message, icons) {
 	return message
     .awaitReactions(filter, {
         max: 1,
-        time: 60000
+        time: 42000
     })
     .then(collected => collected.first() && collected.first().emoji.name);
 }
