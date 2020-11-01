@@ -32,6 +32,7 @@ function deleteMessage(message) {
 }
 
 async function addEmoji(message, icons) {
+	console.log(message);
 	for (const reaction of icons) await message.react(reaction);
   const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 
