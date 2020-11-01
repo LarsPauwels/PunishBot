@@ -243,78 +243,80 @@ class Commands {
 
 	async quizCommand(message) {
 		number = 18;
+		let sendMessage;
+
         const random = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         switch (random) {
             case 1:
-                const sendMessage = await message.channel.send(this.createMessage("",'Who Was The First Hero Thanos Fought When He Landed In Wakanda?',':regional_indicator_a:) Bruce Banner \n\n :regional_indicator_b:) Captain America \n\n :regional_indicator_c:) Black Panther \n\n :regional_indicator_d:) Falcon'));
+                sendMessage = await message.channel.send(this.createMessage("",'Who Was The First Hero Thanos Fought When He Landed In Wakanda?',':regional_indicator_a:) Bruce Banner \n\n :regional_indicator_b:) Captain America \n\n :regional_indicator_c:) Black Panther \n\n :regional_indicator_d:) Falcon'));
                 cAwnser = '🇦';
                 break;
             case 2:
-                const sendMessage = await message.channel.send(this.createMessage("",'Which Was The Third Stone Thanos Added To His Gauntlet?',':regional_indicator_a:) Soul stone \n\n :regional_indicator_b:) Time stone \n\n :regional_indicator_c:) Mind stone \n\n :regional_indicator_d:) Reality stone'));
+                sendMessage = await message.channel.send(this.createMessage("",'Which Was The Third Stone Thanos Added To His Gauntlet?',':regional_indicator_a:) Soul stone \n\n :regional_indicator_b:) Time stone \n\n :regional_indicator_c:) Mind stone \n\n :regional_indicator_d:) Reality stone'));
                 cAwnser = '🇩';
                 break;
             case 3:
-                const sendMessage = await message.channel.send(this.createMessage("",'What Were The First Words Uttered By Thanos In The MCU?',':regional_indicator_a:) "Your politics bore me" \n\n :regional_indicator_b:) "Your demeanour is that of a pouting child" \n\n :regional_indicator_c:) "The only matter I do not take seriously, boy, is you" \n\n :regional_indicator_d:) "Return to me again empty handed, and i will bath the starways with your blood"'));
+                sendMessage = await message.channel.send(this.createMessage("",'What Were The First Words Uttered By Thanos In The MCU?',':regional_indicator_a:) "Your politics bore me" \n\n :regional_indicator_b:) "Your demeanour is that of a pouting child" \n\n :regional_indicator_c:) "The only matter I do not take seriously, boy, is you" \n\n :regional_indicator_d:) "Return to me again empty handed, and i will bath the starways with your blood"'));
                 cAwnser = '🇨';
                 break;
             case 4:
-                const sendMessage = await message.channel.send(this.createMessage("",'What Did Thanos Call The Avengers When He Saw Them In Nebula\'s Memory File?',':regional_indicator_a:) Earth\'s mightiest heroes \n\n :regional_indicator_b:) Defenders of earth \n\n :regional_indicator_c:) Unruly wretches \n\n :regional_indicator_d:) Pathetic humans'));
+                sendMessage = await message.channel.send(this.createMessage("",'What Did Thanos Call The Avengers When He Saw Them In Nebula\'s Memory File?',':regional_indicator_a:) Earth\'s mightiest heroes \n\n :regional_indicator_b:) Defenders of earth \n\n :regional_indicator_c:) Unruly wretches \n\n :regional_indicator_d:) Pathetic humans'));
                 cAwnser = '🇨';
                 break;
             case 5:
-                const sendMessage = await message.channel.send(this.createMessage("",'Who Did Thanos Not Engage In One-On-One Combat With?',':regional_indicator_a:) Rocket \n\n :regional_indicator_b:) Warmachine \n\n :regional_indicator_c:) Falcon \n\n :regional_indicator_d:) Groot'));
+                sendMessage = await message.channel.send(this.createMessage("",'Who Did Thanos Not Engage In One-On-One Combat With?',':regional_indicator_a:) Rocket \n\n :regional_indicator_b:) Warmachine \n\n :regional_indicator_c:) Falcon \n\n :regional_indicator_d:) Groot'));
                 cAwnser = '🇦';
                 break;
             case 6:
-                const sendMessage = await message.channel.send(this.createMessage("",'When Fighting Iron Man, Captain America, And Thor, Who Did Thanos Hit First?',':regional_indicator_a:) Iron man \n\n :regional_indicator_b:) Captain America \n\n :regional_indicator_c:) Thor'));
+                sendMessage = await message.channel.send(this.createMessage("",'When Fighting Iron Man, Captain America, And Thor, Who Did Thanos Hit First?',':regional_indicator_a:) Iron man \n\n :regional_indicator_b:) Captain America \n\n :regional_indicator_c:) Thor'));
                 cAwnser = '🇦';
                 break;
             case 7:
-                const sendMessage = await message.channel.send(this.createMessage("",'Who Was The First Hero Shown To Be Killed By Thanos In Infinity War?',':regional_indicator_a:) Loki \n\n :regional_indicator_b:) Heimdall \n\n :regional_indicator_c:) An unnames asgardion \n\n :regional_indicator_d:) Miek'));
+                sendMessage = await message.channel.send(this.createMessage("",'Who Was The First Hero Shown To Be Killed By Thanos In Infinity War?',':regional_indicator_a:) Loki \n\n :regional_indicator_b:) Heimdall \n\n :regional_indicator_c:) An unnames asgardion \n\n :regional_indicator_d:) Miek'));
                 cAwnser = '🇧';
                 break;
             case 8:
-                const sendMessage = await message.channel.send(this.createMessage("",'How Long Was There Between Thanos\' First Snap And His Destroying Of The Stones?',':regional_indicator_a:) 20 days \n\n :regional_indicator_b:) 21 days \n\n :regional_indicator_c:) 22 days \n\n :regional_indicator_d:) 23 days'));
+                sendMessage = await message.channel.send(this.createMessage("",'How Long Was There Between Thanos\' First Snap And His Destroying Of The Stones?',':regional_indicator_a:) 20 days \n\n :regional_indicator_b:) 21 days \n\n :regional_indicator_c:) 22 days \n\n :regional_indicator_d:) 23 days'));
                 cAwnser = '🇧';
                 break; 
             case 9:
-                const sendMessage = await message.channel.send(this.createMessage("",'Which Of Thanos\' Hands Did Thor Cut Off?',':regional_indicator_a:) Right \n\n :regional_indicator_b:) Left \n\n :regional_indicator_c:) None'));
+                sendMessage = await message.channel.send(this.createMessage("",'Which Of Thanos\' Hands Did Thor Cut Off?',':regional_indicator_a:) Right \n\n :regional_indicator_b:) Left \n\n :regional_indicator_c:) None'));
                 cAwnser = '🇧';
                 break;
             case 10:
-                const sendMessage = await message.channel.send(this.createMessage("",'How Many Times Did Thanos Punch The Hulk At The Beginning Of Infinity War?',':regional_indicator_a:) 6 \n\n :regional_indicator_b:) 8 \n\n :regional_indicator_c:) 10 \n\n :regional_indicator_d:) 12'));
+                sendMessage = await message.channel.send(this.createMessage("",'How Many Times Did Thanos Punch The Hulk At The Beginning Of Infinity War?',':regional_indicator_a:) 6 \n\n :regional_indicator_b:) 8 \n\n :regional_indicator_c:) 10 \n\n :regional_indicator_d:) 12'));
                 cAwnser = '🇨';
                 break;
             case 11:
-                const sendMessage = await message.channel.send(this.createMessage("",'Which Two Stones Did Thanos Use When Doctor Strange Multiplied Himself?',':regional_indicator_a:) Power and Space \n\n :regional_indicator_b:) Reality and Space \n\n :regional_indicator_c:) Soul and Power \n\n :regional_indicator_d:) Soul and Reality'));
+                sendMessage = await message.channel.send(this.createMessage("",'Which Two Stones Did Thanos Use When Doctor Strange Multiplied Himself?',':regional_indicator_a:) Power and Space \n\n :regional_indicator_b:) Reality and Space \n\n :regional_indicator_c:) Soul and Power \n\n :regional_indicator_d:) Soul and Reality'));
                 cAwnser = '🇨';
                 break;
             case 12:
-                const sendMessage = await message.channel.send(this.createMessage("",'What Happened When Thanos Headbutted Captain Marvel?',':regional_indicator_a:) She flew back \n\n :regional_indicator_b:) He flew back \n\n :regional_indicator_c:) Both flew back \n\n :regional_indicator_d:) Nothing'));
+                sendMessage = await message.channel.send(this.createMessage("",'What Happened When Thanos Headbutted Captain Marvel?',':regional_indicator_a:) She flew back \n\n :regional_indicator_b:) He flew back \n\n :regional_indicator_c:) Both flew back \n\n :regional_indicator_d:) Nothing'));
                 cAwnser = '🇩';
                 break;
             case 13:
-                const sendMessage = await message.channel.send(this.createMessage("",'Who First Greeted Thanos When He Arrived On Titan In Infinity War?',':regional_indicator_a:) Iron man \n\n :regional_indicator_b:) Star lord \n\n :regional_indicator_c:) Doctor strange \n\n :regional_indicator_d:) Nebula'));
+                sendMessage = await message.channel.send(this.createMessage("",'Who First Greeted Thanos When He Arrived On Titan In Infinity War?',':regional_indicator_a:) Iron man \n\n :regional_indicator_b:) Star lord \n\n :regional_indicator_c:) Doctor strange \n\n :regional_indicator_d:) Nebula'));
                 cAwnser = '🇨';
                 break;
             case 14:
-                const sendMessage = await message.channel.send(this.createMessage("",'What Is The Name Of Thanos\' Ship?',':regional_indicator_a:) Sanctuary \n\n :regional_indicator_b:) Sanctuary II \n\n :regional_indicator_c:) Sanctuary III \n\n :regional_indicator_d:) Sanctuary IV'));
+                sendMessage = await message.channel.send(this.createMessage("",'What Is The Name Of Thanos\' Ship?',':regional_indicator_a:) Sanctuary \n\n :regional_indicator_b:) Sanctuary II \n\n :regional_indicator_c:) Sanctuary III \n\n :regional_indicator_d:) Sanctuary IV'));
                 cAwnser = '🇧';
                 break;
             case 15:
-                const sendMessage = await message.channel.send(this.createMessage("",'Complete The Quote - "Your Optimism Is ..., Asgardian?',':regional_indicator_a:) Disturbing \n\n :regional_indicator_b:) Pathetic \n\n :regional_indicator_c:) Misplaced \n\n :regional_indicator_d:) Useless'));
+                sendMessage = await message.channel.send(this.createMessage("",'Complete The Quote - "Your Optimism Is ..., Asgardian?',':regional_indicator_a:) Disturbing \n\n :regional_indicator_b:) Pathetic \n\n :regional_indicator_c:) Misplaced \n\n :regional_indicator_d:) Useless'));
                 cAwnser = '🇨';
                 break;
             case 16:
-                const sendMessage = await message.channel.send(this.createMessage("",'What Is Thanos\' Father\'s Name?',':regional_indicator_a:) Eros \n\n :regional_indicator_b:) A\'Lars \n\n :regional_indicator_c:) Sui-San \n\n :regional_indicator_d:) Thane'));
+                sendMessage = await message.channel.send(this.createMessage("",'What Is Thanos\' Father\'s Name?',':regional_indicator_a:) Eros \n\n :regional_indicator_b:) A\'Lars \n\n :regional_indicator_c:) Sui-San \n\n :regional_indicator_d:) Thane'));
                 cAwnser = '🇧';
                 break;  
             case 17:
-                const sendMessage = await message.channel.send(this.createMessage("",'According To Nebula, What Did Thanos Call His Plan To Collect The Infinity Stones?',':regional_indicator_a:) His great plan \n\n :regional_indicator_b:) His infinity plan \n\n :regional_indicator_c:) His infinty quest \n\n :regional_indicator_d:) His noble quest'));
+                sendMessage = await message.channel.send(this.createMessage("",'According To Nebula, What Did Thanos Call His Plan To Collect The Infinity Stones?',':regional_indicator_a:) His great plan \n\n :regional_indicator_b:) His infinity plan \n\n :regional_indicator_c:) His infinty quest \n\n :regional_indicator_d:) His noble quest'));
                 cAwnser = '🇦';
                 break;  
             case 18:
-                const sendMessage = await message.channel.send(this.createMessage("",'When Fighting Which Hero Did Thanos Command For His Army To Rain Fire?',':regional_indicator_a:) Captain marvel \n\n :regional_indicator_b:) Thor \n\n :regional_indicator_c:) Doctor strange \n\n :regional_indicator_d:) Scarlet witch'));
+                sendMessage = await message.channel.send(this.createMessage("",'When Fighting Which Hero Did Thanos Command For His Army To Rain Fire?',':regional_indicator_a:) Captain marvel \n\n :regional_indicator_b:) Thor \n\n :regional_indicator_c:) Doctor strange \n\n :regional_indicator_d:) Scarlet witch'));
                 cAwnser = '🇩';
                 break;     
 		}
