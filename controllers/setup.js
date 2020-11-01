@@ -1,9 +1,9 @@
-export default async (guild) => {
+module.exports = async (guild) => {
   createCategory(guild);
   createRole(guild);
 }
 
-function createCategory(guild) {
+const createCategory = (guild) => {
   const channel = guild.channels.cache.find(c => c.name === process.env.CHANNEL);
   if (!channel) {
     guild.channels

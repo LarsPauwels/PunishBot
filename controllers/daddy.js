@@ -1,7 +1,7 @@
-import * as images from './json/images.json';
-import {createMessage} from './message';
+const images = require('../json/images.json');
+const Message = require('./message');
 
-export default async (message) => {
+module.exports = async (message) => {
   const image = images.random[Math.floor(Math.random() * images.random.length)];
-  const sendMessage = await message.channel.send(createMessage(image, 'Yes my child!'));
+  const sendMessage = await message.channel.send(Message.createMessage(image, 'Yes my child!'));
 }

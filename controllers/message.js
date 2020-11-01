@@ -1,4 +1,4 @@
-import * as images from './json/images.json';
+const images = require('../json/images.json');
 
 function createMessage(image, text, desc = "", fields = []) {
 	let newMessage = new Discord.MessageEmbed()
@@ -42,4 +42,4 @@ async function addEmoji(message, $icons) {
     .then(collected => collected.first() && collected.first().emoji.name);
 }
 
-export default {createMessage, addEmoji}
+module.exports = { createMessage: createMessage, addEmoji: addEmoji };
