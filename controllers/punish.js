@@ -1,3 +1,4 @@
+const images = require('../json/images.json');
 const Message = require('./message');
 
 module.exports = async (message, Client) => {
