@@ -40,20 +40,8 @@ async function addEmoji(message, icons, waitReact = false) {
 }
 
 async function checkReaction(reaction) {
-	if (reaction.message.partial) {
-		try {
-			const emoji = await reaction.message.fetch();
-
-			if (emoji === "❌") {
-				if (message.deletable == true) {
-					console.log("Delete message");
-					message.delete();
-				}
-			}
-		} catch (error) {
-			console.error('Something went wrong when fetching the message: ', error);
-			return;
-		}
+	if (reaction.emoji.name === "❌") {
+		reaction.message.delete();
 	}
 }
 
