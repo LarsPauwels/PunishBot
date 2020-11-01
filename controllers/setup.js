@@ -1,4 +1,4 @@
-export async function setup(guild) {
+export default async (guild) => {
   createCategory(guild);
   createRole(guild);
 }

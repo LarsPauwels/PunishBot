@@ -1,6 +1,6 @@
 import {createMessage} from './message';
 
-export async function punish(message, Client) {
+export default async (message, Client) => {
 	const current = this;
 	const role = message.guild.roles.cache.find(role => role.name === process.env.ROLE);
 	const member = message.mentions.members.first();
@@ -31,5 +31,3 @@ export async function punish(message, Client) {
 			await message.channel.send(createMessage("Vanished", "This person already vanished."));
 		}
 }
-
-export default punish;

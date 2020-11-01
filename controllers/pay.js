@@ -1,7 +1,7 @@
 import * as images from './json/images.json';
 import {createMessage, addEmoji} from './message';
 
-export async function pay(message) {
+export default async (message) => {
   const sendMessage = await message.channel.send(createMessage(images.payImages[0], 'A soul for a soul.'));
   const emoji = await addEmoji(sendMessage, ["💰"]);
   
@@ -18,5 +18,3 @@ async function getInsult(message) {
     	message.channel.send(createMessage(images.payImages[1], "Price have been payed.", `ps: ${text.insult}`));
     });
 }
-
-export default pay;

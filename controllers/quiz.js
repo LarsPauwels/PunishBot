@@ -2,7 +2,7 @@ import * as images from './json/images.json';
 import * as quiz from './json/quiz.json';
 import {createMessage, addEmoji} from './message';
 
-export async function quiz(message) {
+export default async (message) => {
   const q = quiz.thanos[Math.floor(Math.random() * quiz.thanos.length)];
   const letter = 97;
   let answers = [], 
@@ -30,5 +30,3 @@ async function checkAnswer(message, emoji, correct) {
   await message.channel.send(createMessage(images.quizImages[1], "You know nothing of me!"));
   return false;
 }
-
-export default quiz;

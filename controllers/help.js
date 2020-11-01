@@ -1,6 +1,6 @@
 import {createMessage} from './message';
 
-export async function help(message) {
+export default async (message) => {
 	const commands = [
 		{ name: 'Daddy Command', value: '`Thanos daddy`: Returns appropriate images of our lord and savior Thanos.' },
 		{ name: 'Pay Command', value: '`Thanos pay`: Pay with getting your soul crushed or leave.' },
@@ -10,5 +10,3 @@ export async function help(message) {
 
 	const sendMessage = await message.channel.send(createMessage("", 'PunishMeThanos Command Help', "", commands));
 }
-
-export default help;
