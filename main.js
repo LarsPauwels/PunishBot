@@ -75,7 +75,7 @@ class Commands {
 		return newMessage;
 	}
 
-	async deleteMessage(message, $icons = ["❌"]) {
+	async deleteMessage(message, $icons = ["❌"], awnsered = false, cAwnser = null) {
 		const emoji = await this.emojiMessage(message, $icons);
 		if (emoji === "❌") {
 			if (message.deletable == true) {
@@ -321,7 +321,7 @@ class Commands {
                 break;     
 		}
 		let awnsered = false;
-		this.deleteMessage(sendMessage, ["❌", "🇦", "🇧", "🇨", "🇩"]);
+		this.deleteMessage(sendMessage, ["❌", "🇦", "🇧", "🇨", "🇩"], awnsered, cAwnser);
 	}
 }
 
