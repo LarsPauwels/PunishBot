@@ -1,5 +1,5 @@
 const Discord = require('discord.js');
-const Client = new Discord.Client();
+const Client = new Discord.Client({ partials: ['MESSAGE', 'CHANNEL', 'REACTION'] });
 
 //Controllers
 const Setup = require('./controllers/setup');
@@ -51,9 +51,8 @@ Client.on('guildCreate', guild => {
 });
 
 Client.on('messageReactionAdd', async (reaction, user) => {
-	console.log('test');
 	Message.checkReaction(reaction);
 });
 
 Client.login(process.env.BOT_TOKEN);
-console.log('bot logged in');
+console.log('Bot logged in');
