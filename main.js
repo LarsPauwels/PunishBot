@@ -51,7 +51,7 @@ Client.on('guildCreate', guild => {
 });
 
 Client.on('messageReactionAdd', async (reaction, user) => {
-	Message.checkReaction(reaction);
+	Message.checkReaction(reaction, user);
 });
 
 Client.login(process.env.BOT_TOKEN);

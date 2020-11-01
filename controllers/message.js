@@ -39,7 +39,8 @@ async function addEmoji(message, icons, waitReact = false) {
 	}
 }
 
-async function checkReaction(reaction) {
+async function checkReaction(reaction, user) {
+	if (user.bot) return;
 	if (reaction.emoji.name === "❌") {
 		reaction.message.delete();
 	}
