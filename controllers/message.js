@@ -21,8 +21,8 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 	return sendMessage;
 }
 
-function deleteMessage(message) {
-	const emoji = addEmoji(message, ["❌"]);
+async function deleteMessage(message) {
+	const emoji = await addEmoji(message, ["❌"]);
 	if (emoji === "❌") {
 		if (message.deletable == true) {
 			console.log("Delete message");
@@ -32,11 +32,9 @@ function deleteMessage(message) {
 }
 
 async function addEmoji(message, icons) {
-	console.log("test1");
 	for (const reaction of icons) await message.react(reaction);
   	const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 
-  	console.log("test");
 	return message
     .awaitReactions(filter, {
         max: 1,
