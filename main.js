@@ -243,7 +243,7 @@ class Commands {
 
 	async quizCommand(message) {
 		const number = 18;
-		let sendMessage;
+		let sendMessage, cAwnser;
 
         const random = Math.floor (Math.random() * (number - 1 + 1)) + 1;
         switch (random) {
