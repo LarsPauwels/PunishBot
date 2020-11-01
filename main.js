@@ -1,5 +1,4 @@
 const Discord = require('discord.js');
-const Fetch = require('node-fetch');
 const Client = new Discord.Client();
 
 //Controllers

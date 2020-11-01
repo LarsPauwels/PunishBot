@@ -1,5 +1,6 @@
 const images = require('../json/images.json');
 const Message = require('./message');
+const Fetch = require('node-fetch');
 
 module.exports = async (message) => {
   const sendMessage = await Message.createMessage(message, images.payImages[0], 'A soul for a soul.', "", []);
