@@ -40,10 +40,10 @@ async function addEmoji(message, icons, waitReact = false) {
 }
 
 async function checkReaction(reaction) {
-	console.log(reaction);
-	if (reaction.partial) {
+	if (reaction.message.partial) {
 		try {
-			const emoji = await reaction.fetch();
+			const emoji = await reaction.message.fetch();
+
 			if (emoji === "❌") {
 				if (message.deletable == true) {
 					console.log("Delete message");
