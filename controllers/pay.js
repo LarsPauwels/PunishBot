@@ -1,7 +1,7 @@
 import * as images from './json/images.json';
 import {createMessage, addEmoji} from './message';
 
-async function pay(message) {
+export async function pay(message) {
   const sendMessage = await message.channel.send(createMessage(images.payImages[0], 'A soul for a soul.'));
   const emoji = await addEmoji(sendMessage, ["💰"]);
   

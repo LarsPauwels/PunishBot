@@ -1,4 +1,4 @@
-async function setup(guild) {
+export async function setup(guild) {
   createCategory(guild);
   createRole(guild);
 }
@@ -36,50 +36,48 @@ function createChannel(guild, category) {
 }
 
 function createRole(guild) {
-    const role = guild.roles.cache.find(x => x.name == process.env.ROLE);
-      if(!role) {
-        guild.roles.create({
-          data: {
-            name: process.env.ROLE,
-            color: '#800080',
-            permissions: []
-          },
-          reason: 'You did something naughty. Welcome to Thanos Dungeon',
+  const role = guild.roles.cache.find(x => x.name == process.env.ROLE);
+    if(!role) {
+      guild.roles.create({
+        data: {
+          name: process.env.ROLE,
+          color: '#800080',
+          permissions: []
+        },
+        reason: 'You did something naughty. Welcome to Thanos Dungeon',
+    })
+      .then(role => {
+        console.log('Rol Created');
+        role.setPermissions([
+          'CREATE_INSTANT_INVITE: false',
+          'KICK_MEMBERS: false',
+          'BAN_MEMBERS: false',
+          'ADMINISTRATOR: false',
+          'MANAGE_CHANNELS: false',
+          'MANAGE_GUILD: false',
+          'ADD_REACTIONS: false',
+          'READ_MESSAGES: false',
+          'SEND_MESSAGES: false',
+          'SEND_TTS_MESSAGES: false',
+          'MANAGE_MESSAGES: false',
+          'EMBED_LINKS: false',
+          'ATTACH_FILES: false',
+          'READ_MESSAGE_HISTORY: false',
+          'MENTION_EVERYONE: false',
+          'EXTERNAL_EMOJIS: false',
+          'CONNECT: false',
+          'SPEAK: false',
+          'MUTE_MEMBERS: false',
+          'DEAFEN_MEMBERS: false',
+          'MOVE_MEMBERS: false',
+          'USE_VAD: false',
+          'CHANGE_NICKNAME: false',
+          'MANAGE_NICKNAMES: false',
+          'MANAGE_ROLES_OR_PERMISSIONS: false',
+          'MANAGE_WEBHOOKS: false',
+          'MANAGE_EMOJIS: false'
+        ]);
       })
-        .then(role => {
-          console.log('Rol Created');
-          role.setPermissions([
-            'CREATE_INSTANT_INVITE: false',
-            'KICK_MEMBERS: false',
-            'BAN_MEMBERS: false',
-            'ADMINISTRATOR: false',
-            'MANAGE_CHANNELS: false',
-            'MANAGE_GUILD: false',
-            'ADD_REACTIONS: false',
-            'READ_MESSAGES: false',
-            'SEND_MESSAGES: false',
-            'SEND_TTS_MESSAGES: false',
-            'MANAGE_MESSAGES: false',
-            'EMBED_LINKS: false',
-            'ATTACH_FILES: false',
-            'READ_MESSAGE_HISTORY: false',
-            'MENTION_EVERYONE: false',
-            'EXTERNAL_EMOJIS: false',
-            'CONNECT: false',
-            'SPEAK: false',
-            'MUTE_MEMBERS: false',
-            'DEAFEN_MEMBERS: false',
-            'MOVE_MEMBERS: false',
-            'USE_VAD: false',
-            'CHANGE_NICKNAME: false',
-            'MANAGE_NICKNAMES: false',
-            'MANAGE_ROLES_OR_PERMISSIONS: false',
-            'MANAGE_WEBHOOKS: false',
-            'MANAGE_EMOJIS: false'
-          ]);
-        })
-        .catch(console.error);
-    }
+      .catch(console.error);
   }
-
-export default setup;
+}

@@ -2,7 +2,7 @@ import * as images from './json/images.json';
 import * as quiz from './json/quiz.json';
 import {createMessage, addEmoji} from './message';
 
-async function quiz(message) {
+export async function quiz(message) {
   const q = quiz.thanos[Math.floor(Math.random() * quiz.thanos.length)];
   const letter = 97;
   let answers = [], 
