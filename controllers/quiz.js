@@ -12,7 +12,7 @@ module.exports = async (message) => {
   }
   
   const sendMessage = await Message.createMessage(message, "", q.question, "", answers);
-  const emoji = await Message.addEmoji(sendMessage, icons.slice(0, q.answers.length - 1));
+  const emoji = await Message.addEmoji(sendMessage, icons.slice(0, q.answers.length), true);
 
   for (var i = 0; i < icons.length; i++) {
     if (emoji === icons[i]) {
