@@ -88,40 +88,40 @@ class Commands {
 		} else if (emoji === "🇦") {
 			if (awnsered == false) {
 				if (emoji == cAwnser) {
-					message.reply("you got it right!");
+					message.channel.send(this.createMessage("https://i.redd.it/s36a6bjfmkt21.jpg", "You got it right", ""));
 				}
 				else{
-					message.reply("Try again!");
+					message.channel.send(this.createMessage("https://i.redd.it/cgbvwy19ard31.gif", "You know nothing of me", ""));
 				}
 				awnsered = true; cAwnser = ""; 
 			}
 		} else if (emoji === "🇧") {
 			if (awnsered == false) {
 				if (emoji == cAwnser) {
-					message.reply("you got it right!");
+					message.channel.send(this.createMessage("https://i.redd.it/s36a6bjfmkt21.jpg", "You got it right", ""));
 				}
 				else{
-					message.reply("Try again!");
+					message.channel.send(this.createMessage("https://i.redd.it/cgbvwy19ard31.gif", "You know nothing of me", ""));
 				}
 				awnsered = true; cAwnser = ""; 
 			}
 		} else if (emoji === "🇨") {
 			if (awnsered == false) {
 				if (emoji == cAwnser) {
-					message.reply("you got it right!");
+					message.channel.send(this.createMessage("https://i.redd.it/s36a6bjfmkt21.jpg", "You got it right", ""));
 				}
 				else{
-					message.reply("Try again!");
+					message.channel.send(this.createMessage("https://i.redd.it/cgbvwy19ard31.gif", "You know nothing of me", ""));
 				}
 				awnsered = true; cAwnser = ""; 
 			}
 		} else if (emoji === "🇩") {
 			if (awnsered == false) {
 				if (emoji == cAwnser) {
-					message.reply("you got it right!");
+					message.channel.send(this.createMessage("https://i.redd.it/s36a6bjfmkt21.jpg", "You got it right", ""));
 				}
 				else{
-					message.reply("Try again!");
+					message.channel.send(this.createMessage("https://i.redd.it/cgbvwy19ard31.gif", "You know nothing of me", ""));
 				}
 				awnsered = true; cAwnser = ""; 
 			}
