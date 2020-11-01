@@ -13,8 +13,7 @@ module.exports = async (message) => {
   }
   
   const sendMessage = await Message.createMessage(message, "", q.question, "", answers);
-  await Message.addEmoji(sendMessage, icons);
-  const emoji = Message.waitReact(sendMessage, icons);
+  const emoji = await Message.addEmoji(sendMessage, icons);
 
   for (var i = 0; i < icons.length; i++) {
     if (emoji === icons[i]) {

@@ -3,8 +3,7 @@ const Message = require('./message');
 
 module.exports = async (message) => {
   const sendMessage = await Message.createMessage(message, images.payImages[0], 'A soul for a soul.', "", []);
-  await Message.addEmoji(sendMessage, ["💰"]);
-  const emoji = Message.waitReact(sendMessage, icons);
+  const emoji = await Message.addEmoji(sendMessage, ["💰"], true);
   
   if (emoji == "💰") {
   	console.log("Add pay message");

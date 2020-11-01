@@ -31,19 +31,18 @@ async function deleteMessage(message) {
 	}
 }
 
-async function addEmoji(message, icons) {
+async function addEmoji(message, icons, waitReact = false) {
 	for (const reaction of icons) await message.react(reaction);
+	if (waitReact) {
+		const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
+
+		return message
+	    .awaitReactions(filter, {
+	        max: 1,
+	        time: 60000
+	    })
+	    .then(collected => collected.first() && collected.first().emoji.name);
+	}
 }
 
-function waitReact(icons) {
-	const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
-
-	return message
-    .awaitReactions(filter, {
-        max: 1,
-        time: 60000
-    })
-    .then(collected => collected.first() && collected.first().emoji.name);
-}
-
-module.exports = { createMessage: createMessage, addEmoji: addEmoji, waitReact: waitReact };
+module.exports = { createMessage: createMessage, addEmoji: addEmoji };
