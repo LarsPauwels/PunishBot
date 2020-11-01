@@ -1,4 +1,5 @@
 const images = require('../json/images.json');
+const Discord = require('discord.js');
 
 function createMessage(image, text, desc = "", fields = []) {
 	let newMessage = new Discord.MessageEmbed()

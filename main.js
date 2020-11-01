@@ -3,45 +3,45 @@ const Fetch = require('node-fetch');
 const Client = new Discord.Client();
 
 //Controllers
-const setup = require('./controllers/setup');
-const command = require('./controllers/command');
-const daddy = require('./controllers/daddy');
-const help = require('./controllers/help');
-const punish = require('./controllers/punish');
-const quiz = require('./controllers/quiz');
-const pay = require('./controllers/pay');
+const Setup = require('./controllers/setup');
+const Command = require('./controllers/command');
+const Daddy = require('./controllers/daddy');
+const Help = require('./controllers/help');
+const Punish = require('./controllers/punish');
+const Quiz = require('./controllers/quiz');
+const Pay = require('./controllers/pay');
 
 Client.once('ready', () => {
 	console.log('Bot started');
 	
 	//Sends user to punishement channel and back (Thanos punish)
-	command(Client, process.env.PUNISH, message => {
+	Command(Client, process.env.PUNISH, message => {
 		console.log('Typed punish');
-		punish(message, Client);
+		Punish(message, Client);
 	});
 
 	//Gives back a random image of thanos (Thanos daddy)
-	command(Client, process.env.DADDY, message => {
+	Command(Client, process.env.DADDY, message => {
 		console.log('Typed daddy');
-		daddy(message);
+		Daddy(message);
 	});
 
 	//Gives GIF with question if you wan't to pay (Thanos pay)
-	command(Client, process.env.PAY, message => {
+	Command(Client, process.env.PAY, message => {
 		console.log('Typed pay');
-		pay(message);
+		Pay(message);
 	});
 
 	//Askes questions about Thanos in Marvel (Thanos quiz)
-	command(Client, process.env.QUIZ, message => {
+	Command(Client, process.env.QUIZ, message => {
 		console.log('Typed quiz');
-		quiz(message);
+		Quiz(message);
 	});
 
 	//Returns all the available commands (Thanos help)
-	command(Client, process.env.HELP, message => {
+	Command(Client, process.env.HELP, message => {
 		console.log('Typed help');
-		help(message);
+		Help(message);
 	});
 });
 
@@ -97,7 +97,7 @@ class Setup {
 
 Client.on('guildCreate', guild => {
 	console.log("Setup Bot");
-	setup(guild);
+	Setup(guild);
 });
 
 Client.login(process.env.BOT_TOKEN);
