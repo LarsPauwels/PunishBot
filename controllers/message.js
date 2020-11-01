@@ -40,11 +40,10 @@ async function addEmoji(message, icons, waitReact = false) {
 }
 
 async function checkReaction(reaction) {
-	console.log(reaction.partial);
-	// if (reaction.partial) {
+	console.log(reaction);
+	if (reaction.partial) {
 		try {
 			const emoji = await reaction.fetch();
-			console.log(emoji);
 			if (emoji === "❌") {
 				if (message.deletable == true) {
 					console.log("Delete message");
@@ -55,7 +54,7 @@ async function checkReaction(reaction) {
 			console.error('Something went wrong when fetching the message: ', error);
 			return;
 		}
-	// }
+	}
 }
 
 module.exports = { createMessage: createMessage, addEmoji: addEmoji, checkReaction: checkReaction };
