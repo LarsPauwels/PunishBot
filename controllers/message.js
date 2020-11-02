@@ -23,12 +23,6 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 
 async function addDeleteEmoji(message) {
 	await addEmoji(message, ["❌"]);
-
-	message.awaitReactions(r => r.emoji.name == '❌', { max: 1 }).then(collected => {
-	    if (collected.size >= 1 && message.author.username === "PunishMeThanos") {
-	     	message.delete()
-	    }
-	});
 }
 
 async function addEmoji(message, icons, waitReact = false) {
@@ -38,19 +32,18 @@ async function addEmoji(message, icons, waitReact = false) {
 
 		return message
 	    .awaitReactions(filter, {
-	        max: 1,
-	        time: 60000
+	        max: 1
 	    })
 	    .then(collected => collected.first() && collected.first().emoji.name);
 	}
 }
 
-// async function checkReaction(reaction, user) {
-// 	if (user.bot) return;
-// 	if (reaction.emoji.name === "❌" && 
-// 		reaction.message.author.username === "PunishMeThanos") {
-// 		await reaction.message.delete();
-// 	}
-// }
+async function checkReaction(reaction, user) {
+	if (user.bot) return;
+	if (reaction.emoji.name === "❌" && 
+		reaction.message.author.username === "PunishMeThanos") {
+		await reaction.message.delete(1000);
+	}
+}
 
 module.exports = { createMessage: createMessage, addEmoji: addEmoji };
