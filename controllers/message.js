@@ -30,6 +30,7 @@ async function addEmoji(message, icons, waitReact = false) {
 	if (waitReact) {
 		const filter = (reaction, user) => icons.includes(reaction.emoji.name) && (!user.bot);
 
+		console.log("test");
 		return message
 	    .awaitReactions(filter, {
 	        max: 1,
@@ -44,7 +45,7 @@ async function checkReaction(reaction, user) {
 	if (reaction.emoji.name === "❌" && 
 		reaction.message.deletable &&
 		reaction.message.author.username === "PunishMeThanos") {
-		// reaction.message.delete();
+		await reaction.message.delete();
 	}
 	return;
 }
