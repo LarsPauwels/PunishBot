@@ -46,4 +46,4 @@ async function checkReaction(reaction, user) {
 	}
 }
 
-module.exports = { createMessage: createMessage, addEmoji: addEmoji };
+module.exports = { createMessage: createMessage, addEmoji: addEmoji, checkReaction: checkReaction };
