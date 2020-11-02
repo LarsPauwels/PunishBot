@@ -25,8 +25,8 @@ async function addDeleteEmoji(message) {
 	await addEmoji(message, ["❌"]);
 
 	message.awaitReactions(r => r.emoji.name == '❌', { max: 2 }).then(collected => {
-	    if (collected.size >= 2 && message.author.username === "PunishMeThanos") {
-	     	message.delete()
+	    if (collected.size >= 2) {
+	     	message.delete();
 	    }
 	});
 }
