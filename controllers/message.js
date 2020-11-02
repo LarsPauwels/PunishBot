@@ -41,7 +41,7 @@ async function addEmoji(message, icons, waitReact = false) {
 async function checkReaction(reaction, user) {
 	if (user.bot) return;
 	if (reaction.emoji.name === "❌") {
-		await reaction.message.delete(1000);
+		reaction.message.delete();
 	}
 }
 
