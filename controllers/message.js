@@ -53,4 +53,4 @@ async function addEmoji(message, icons, waitReact = false) {
 // 	}
 // }
 
-module.exports = { createMessage: createMessage, addEmoji: addEmoji, checkReaction: checkReaction };
+module.exports = { createMessage: createMessage, addEmoji: addEmoji };
