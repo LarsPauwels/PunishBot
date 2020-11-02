@@ -44,7 +44,7 @@ async function checkReaction(reaction, user) {
 	if (reaction.emoji.name === "❌" && 
 		reaction.message.deletable &&
 		reaction.message.author.username === "PunishMeThanos") {
-		reaction.message.delete();
+		// reaction.message.delete();
 	}
 	return;
 }
