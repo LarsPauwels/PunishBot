@@ -41,9 +41,12 @@ async function addEmoji(message, icons, waitReact = false) {
 
 async function checkReaction(reaction, user) {
 	if (user.bot) return;
-	if (reaction.emoji.name === "❌" && reaction.message.deletable) {
+	if (reaction.emoji.name === "❌" && 
+		reaction.message.deletable) {
+		console.log(reaction.message.author);
 		reaction.message.delete();
 	}
+	return;
 }
 
 module.exports = { createMessage: createMessage, addEmoji: addEmoji, checkReaction: checkReaction };
