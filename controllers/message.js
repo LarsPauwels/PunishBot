@@ -24,7 +24,8 @@ async function createMessage(message, image, text, desc = "", fields = []) {
 async function addDeleteEmoji(message) {
 	await addEmoji(message, ["❌"]);
 
-	message.awaitReactions(r => r.emoji.name == '❌', { max: 2 }).then(collected => {
+	await message.awaitReactions(r => r.emoji.name == '❌', { max: 2 }).then(collected => {
+	    console.log("test");
 	    if (collected.size >= 2) {
 	     	message.delete();
 	    }
