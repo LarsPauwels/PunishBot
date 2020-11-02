@@ -52,6 +52,7 @@ Client.on('guildCreate', guild => {
 
 Client.on('messageReactionAdd', async (reaction, user) => {
 	Message.checkReaction(reaction, user);
+	console.log("ended");
 	return;
 });
 
